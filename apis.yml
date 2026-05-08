@@ -1,0 +1,29 @@
+aid: bandcamp
+url: https://raw.githubusercontent.com/api-evangelist/bandcamp/refs/heads/main/apis.yml
+name: Bandcamp
+x-type: company
+description: >-
+  Bandcamp is a music marketplace and streaming platform allowing independent artists and labels to sell digital and physical music directly to fans.
+image: https://kinlane-productions.s3.amazonaws.com/apis-json/apis-json-logo.jpg
+tags:
+  - Music
+  - Marketplace
+  - Streaming
+  - Independent
+  - Direct-to-Fan
+created: '2026-05-08'
+modified: '2026-05-08'
+specificationVersion: '0.19'
+apis: []
+common:
+  - type: Website
+    url: https://bandcamp.com/
+  - type: Plans
+    url: plans/bandcamp-plans-pricing.yml
+  - type: RateLimits
+    url: rate-limits/bandcamp-rate-limits.yml
+  - type: FinOps
+    url: finops/bandcamp-finops.yml
+maintainers:
+  - FN: Kin Lane
+    email: kin@apievangelist.com
