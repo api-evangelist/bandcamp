@@ -5,21 +5,25 @@ provider: Bandcamp
 providerId: bandcamp
 created: '2026-05-08'
 modified: '2026-05-08'
-reconciled: false
+reconciled: true
 tags:
 - Music
 - Marketplace
-- Streaming
-- Independent
-- Direct-to-Fan
+- Indie
+- Audio
+- Sales
+- Merch
 - FinOps
 - Cost Management
 - FOCUS
-description: FOCUS-aligned FinOps placeholder for Bandcamp. Pipeline will replace with real billing details.
-notes: Initial scaffold — billing model has not yet been reconciled.
+description: >-
+  FOCUS-aligned FinOps profile for Bandcamp. The APIs are free; the cost lever is the seller share
+  Bandcamp deducts from artist sales (digital and merch). For API consumers (labels, fulfillment
+  partners) the integration cost is essentially zero on the platform side.
+notes: API is free; cost concentration is on artist sales share, billed implicitly via reduced payouts.
 sources:
-- https://bandcamp.com/
-- https://focus.finops.org/focus-specification/v1-3/
+- https://bandcamp.com/developer
+- https://bandcamp.com/help/seller_help
 alignedWith:
   framework: FinOps Foundation Framework
   frameworkUrl: https://www.finops.org/framework/
@@ -27,40 +31,45 @@ alignedWith:
   dataSpecVersion: '1.3'
   dataSpecUrl: https://focus.finops.org/focus-specification/v1-3/
 publisherName: Bandcamp
-serviceCategory: Music
+serviceCategory: Music Marketplace
 billingModel:
-  pricingCategory: To Be Reconciled
-  billingFrequency: Monthly
+  pricingCategory: Revenue Share
+  billingFrequency: Per-Transaction
   billingCurrency: USD
   chargeCategories:
-  - Usage
-  - Purchase
   - Adjustment
 focusColumns:
-  ServiceName: Bandcamp
-  ServiceCategory: Music
+  ServiceName: Bandcamp Partner API
+  ServiceCategory: Music Marketplace
   ProviderName: Bandcamp
   PublisherName: Bandcamp
   InvoiceIssuerName: Bandcamp
   BillingCurrency: USD
-  ChargeCategory: Usage
+  ChargeCategory: Adjustment
 meters:
-- name: api_usage
-  description: Catch-all meter pending reconciliation.
-  unit: varies
+- name: digital_sales_share
+  description: Bandcamp's percentage of artist digital sales.
+  unit: percent_of_sale
   aggregation: sum
   dimensions:
-  - account
-  - resource
+  - band
+  - release
+- name: merch_sales_share
+  description: Bandcamp's percentage of merch sales.
+  unit: percent_of_sale
+  aggregation: sum
+  dimensions:
+  - band
+  - product
 principles:
 - name: Visibility
-  description: Pull provider invoices or usage exports until a self-serve usage feed is documented.
+  description: Pull Sales Report API regularly to reconcile gross sales against Bandcamp payouts.
 - name: Allocation
-  description: Tag invoice line items to consuming business units in your FinOps store.
+  description: Allocate sales-share cost to the artist or release that generated it.
 - name: Optimization
-  description: Levers depend on the provider's billing model; review at renewal once reconciled.
+  description: Lever is product mix and Bandcamp Friday participation; not API-side.
 - name: Accountability
-  description: Assign a contract owner to review billing against negotiated terms.
+  description: Label or fulfillment partner owns the API credentials and reconciliation.
 maintainers:
 - FN: Kin Lane
   email: kin@apievangelist.com

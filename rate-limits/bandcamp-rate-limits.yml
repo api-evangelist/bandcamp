@@ -9,27 +9,38 @@ reconciled: false
 tags:
 - Music
 - Marketplace
-- Streaming
-- Independent
-- Direct-to-Fan
+- Indie
+- Audio
+- Sales
+- Merch
 - Rate Limiting
 - Quotas
 - Throttling
-description: Placeholder rate-limit artifact for Bandcamp. Replace with real limits once researched.
-notes: Initial scaffold — limits have not yet been reconciled.
+description: >-
+  Bandcamp does not publicly document specific rate-limit thresholds for its developer APIs. Tokens
+  expire after one hour and partners are expected to reuse tokens within their lifetime. Excessive
+  requests may trigger throttling or account review.
+notes: Specific RPS thresholds are not documented; coordinate with Bandcamp partner support.
 sources:
-- https://bandcamp.com/
+- https://bandcamp.com/developer
 responseCodes:
   throttled: 429
 limits:
 - name: Default
-  scope: account
-  metric: varies
+  scope: application
+  metric: requests
   limit: see provider documentation
-  notes: Pending reconciliation.
+  notes: Not publicly documented.
+- name: Token lifetime
+  scope: application
+  metric: minutes
+  limit: 60
+  notes: Access tokens expire after one hour.
 policies:
+- name: Token Reuse
+  description: Reuse access tokens within their one-hour lifetime; do not request a new token per call.
 - name: Backoff Strategy
-  description: Clients should implement exponential backoff with jitter and honor any Retry-After header.
+  description: On throttling, apply exponential backoff with jitter and contact Bandcamp partner support if sustained.
 maintainers:
 - FN: Kin Lane
   email: kin@apievangelist.com

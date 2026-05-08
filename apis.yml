@@ -3,21 +3,67 @@ url: https://raw.githubusercontent.com/api-evangelist/bandcamp/refs/heads/main/a
 name: Bandcamp
 x-type: company
 description: >-
-  Bandcamp is a music marketplace and streaming platform allowing independent artists and labels to sell digital and physical music directly to fans.
+  Bandcamp is an artist-direct music marketplace and streaming platform. Its developer APIs are
+  limited and gated to labels and merchandise fulfillment partners; access is granted on request and
+  uses OAuth 2.0.
 image: https://kinlane-productions.s3.amazonaws.com/apis-json/apis-json-logo.jpg
 tags:
   - Music
   - Marketplace
-  - Streaming
-  - Independent
-  - Direct-to-Fan
+  - Indie
+  - Audio
+  - Sales
+  - Merch
 created: '2026-05-08'
 modified: '2026-05-08'
 specificationVersion: '0.19'
-apis: []
+apis:
+  - aid: bandcamp:account
+    name: Bandcamp Account API
+    description: >-
+      Account API for retrieving the list of bands a user manages and basic account metadata. OAuth 2.0
+      client credentials with token endpoint at /oauth_token; access tokens expire after one hour.
+    humanURL: https://bandcamp.com/developer
+    baseURL: https://bandcamp.com/api
+    tags:
+      - Account
+      - Bands
+    properties:
+      - type: Documentation
+        url: https://bandcamp.com/developer
+  - aid: bandcamp:sales-report
+    name: Bandcamp Sales Report API
+    description: >-
+      Sales Report API for labels: retrieves sales line items (digital, physical, merch, subscriptions)
+      over a date range. Restricted to labels.
+    humanURL: https://bandcamp.com/developer/sales
+    baseURL: https://bandcamp.com/api
+    tags:
+      - Sales
+      - Reporting
+      - Labels
+    properties:
+      - type: Documentation
+        url: https://bandcamp.com/developer/sales
+  - aid: bandcamp:merch-orders
+    name: Bandcamp Merch Orders API
+    description: >-
+      Merch Orders API for fulfillment partners: list and update merchandise orders (mark shipped, set
+      tracking). Restricted to merchandise fulfillment partners.
+    humanURL: https://bandcamp.com/developer/merch
+    baseURL: https://bandcamp.com/api
+    tags:
+      - Merch
+      - Orders
+      - Fulfillment
+    properties:
+      - type: Documentation
+        url: https://bandcamp.com/developer/merch
 common:
   - type: Website
     url: https://bandcamp.com/
+  - type: DeveloperPortal
+    url: https://bandcamp.com/developer
   - type: Plans
     url: plans/bandcamp-plans-pricing.yml
   - type: RateLimits
