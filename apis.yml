@@ -1,7 +1,7 @@
 aid: bandcamp
 url: https://raw.githubusercontent.com/api-evangelist/bandcamp/refs/heads/main/apis.yml
 name: Bandcamp
-x-type: company
+kind: company
 description: >-
   Bandcamp is an artist-direct music marketplace and streaming platform. Its developer APIs are
   limited and gated to labels and merchandise fulfillment partners; access is granted on request and
