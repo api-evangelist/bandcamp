@@ -60,6 +60,8 @@ apis:
       - type: Documentation
         url: https://bandcamp.com/developer/merch
 common:
+  - type: LinkedIn
+    url: https://www.linkedin.com/company/bandcamp
   - type: Website
     url: https://bandcamp.com/
   - type: DeveloperPortal
