@@ -1,0 +1,279 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Bandcamp API",
+    "version": "1.0.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "OAuth",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Issue or refresh an access token",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://bandcamp.com/oauth_token",
+            "body": {
+              "type": "form-urlencoded",
+              "data": [
+                {
+                  "name": "grant_type",
+                  "value": ""
+                },
+                {
+                  "name": "client_id",
+                  "value": ""
+                },
+                {
+                  "name": "client_secret",
+                  "value": ""
+                },
+                {
+                  "name": "refresh_token",
+                  "value": ""
+                }
+              ]
+            }
+          },
+          "docs": "Obtain an access token using either the `client_credentials` grant (initial issuance) or the `refresh_token` grant (refresh an expired token). Tokens expire after one hour."
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Account",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List bands accessible to the authenticated account",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://bandcamp.com/api/account/1/my_bands",
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "List bands accessible to the authenticated account"
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Sales",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Retrieve a synchronous sales report",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://bandcamp.com/api/sales/4/sales_report",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "Retrieve a synchronous sales report"
+        },
+        {
+          "info": {
+            "name": "Generate a sales report asynchronously",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://bandcamp.com/api/sales/4/generate_sales_report",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "Generate a sales report asynchronously"
+        },
+        {
+          "info": {
+            "name": "Fetch a previously generated sales report",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://bandcamp.com/api/sales/4/fetch_sales_report",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "Fetch a previously generated sales report"
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Merch Orders",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Retrieve merchandise package details and inventory",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://bandcamp.com/api/merchorders/1/get_merch_details",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "Retrieve merchandise package details and inventory"
+        },
+        {
+          "info": {
+            "name": "List shipping origins",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://bandcamp.com/api/merchorders/1/get_shipping_origin_details",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "List shipping origins"
+        },
+        {
+          "info": {
+            "name": "Retrieve merchandise orders",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://bandcamp.com/api/merchorders/4/get_orders",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "Retrieve merchandise orders"
+        },
+        {
+          "info": {
+            "name": "Mark merchandise items as shipped",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://bandcamp.com/api/merchorders/2/update_shipped",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "Mark merchandise items as shipped"
+        },
+        {
+          "info": {
+            "name": "Mark all merch orders in a date range as shipped",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://bandcamp.com/api/merchorders/1/mark_date_range_as_shipped",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "Mark all merch orders in a date range as shipped"
+        },
+        {
+          "info": {
+            "name": "Update merchandise inventory quantities",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://bandcamp.com/api/merchorders/1/update_quantities",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "Update merchandise inventory quantities"
+        },
+        {
+          "info": {
+            "name": "Update merchandise SKUs",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://bandcamp.com/api/merchorders/1/update_sku",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "Update merchandise SKUs"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

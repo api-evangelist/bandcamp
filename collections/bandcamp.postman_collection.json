@@ -1,0 +1,1397 @@
+{
+  "item": [
+    {
+      "id": "e717b16e-6120-4705-ba8b-2630c8cfb3ff",
+      "name": "OAuth",
+      "description": {
+        "content": "OAuth 2.0 token issuance and refresh",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "8ff16213-7024-4c0b-88c9-86f75c41d84f",
+          "name": "Issue or refresh an access token",
+          "request": {
+            "name": "Issue or refresh an access token",
+            "description": {
+              "content": "Obtain an access token using either the `client_credentials` grant (initial issuance) or the `refresh_token` grant (refresh an expired token). Tokens expire after one hour.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "oauth_token"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/x-www-form-urlencoded"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "urlencoded",
+              "urlencoded": [
+                {
+                  "disabled": false,
+                  "key": "grant_type",
+                  "value": "<string>",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "key": "client_id",
+                  "value": "<string>",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "key": "client_secret",
+                  "value": "<string>",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "key": "refresh_token",
+                  "value": "<string>",
+                  "description": "Required when grant_type is `refresh_token`."
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "5b46e465-138b-41d0-b9bf-1f5adf88843e",
+              "name": "Token response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "oauth_token"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) ",
+                        "type": "text/plain"
+                      },
+                      "key": "grant_type",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) ",
+                        "type": "text/plain"
+                      },
+                      "key": "client_id",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) ",
+                        "type": "text/plain"
+                      },
+                      "key": "client_secret",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "Required when grant_type is `refresh_token`.",
+                        "type": "text/plain"
+                      },
+                      "key": "refresh_token",
+                      "value": "<string>"
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"access_token\": \"string\",\n  \"token_type\": \"string\",\n  \"expires_in\": 3199,\n  \"refresh_token\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    },
+    {
+      "id": "b1e40bde-bfc4-4e6d-b2d7-668496521356",
+      "name": "Account",
+      "description": {
+        "content": "Account and band information",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "ba646f09-24b1-4d51-b308-a8d5b62cb0a9",
+          "name": "List bands accessible to the authenticated account",
+          "request": {
+            "name": "List bands accessible to the authenticated account",
+            "description": {},
+            "url": {
+              "path": [
+                "api",
+                "account",
+                "1",
+                "my_bands"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{bearerToken}}"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "c47ad2a2-c6a5-4694-8126-b2d685213a07",
+              "name": "Bands list",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "account",
+                    "1",
+                    "my_bands"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"bands\": [\n    {\n      \"subdomain\": \"string\",\n      \"band_id\": 2015,\n      \"name\": \"string\",\n      \"member_bands\": [\n        {\n          \"subdomain\": \"string\",\n          \"band_id\": 1680,\n          \"name\": \"string\"\n        },\n        {\n          \"subdomain\": \"string\",\n          \"band_id\": 349,\n          \"name\": \"string\"\n        }\n      ]\n    },\n    {\n      \"subdomain\": \"string\",\n      \"band_id\": 1368,\n      \"name\": \"string\",\n      \"member_bands\": [\n        {\n          \"subdomain\": \"string\",\n          \"band_id\": 4394,\n          \"name\": \"string\"\n        },\n        {\n          \"subdomain\": \"string\",\n          \"band_id\": 6664,\n          \"name\": \"string\"\n        }\n      ]\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    },
+    {
+      "id": "416886d0-5e79-4db4-8d41-9cfafbbab6c7",
+      "name": "Sales",
+      "description": {
+        "content": "Sales reporting for labels",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "d398a279-4d97-42b9-b56d-0bbcf53698d1",
+          "name": "Retrieve a synchronous sales report",
+          "request": {
+            "name": "Retrieve a synchronous sales report",
+            "description": {},
+            "url": {
+              "path": [
+                "api",
+                "sales",
+                "4",
+                "sales_report"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{bearerToken}}"
+                }
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"band_id\": \"<integer>\",\n  \"start_time\": \"<string>\",\n  \"end_time\": \"<string>\",\n  \"member_band_id\": \"<integer>\",\n  \"format\": \"json\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "e652fac3-5d7c-4f14-90aa-7c3d451068e3",
+              "name": "Sales report",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "sales",
+                    "4",
+                    "sales_report"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"band_id\": \"<integer>\",\n  \"start_time\": \"<string>\",\n  \"end_time\": \"<string>\",\n  \"member_band_id\": \"<integer>\",\n  \"format\": \"json\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"report\": [\n    {\n      \"bandcamp_transaction_id\": 9817,\n      \"bandcamp_transaction_item_id\": 6039,\n      \"bandcamp_related_transaction_id\": 2678,\n      \"date\": \"string\",\n      \"item_type\": \"string\",\n      \"item_name\": \"string\",\n      \"artist\": \"string\",\n      \"currency\": \"string\",\n      \"item_price\": 3125.7376067958876,\n      \"quantity\": 7694.777346970911,\n      \"sub_total\": 5016.559277432921,\n      \"additional_fan_contribution\": 3006.316702406311,\n      \"transaction_fee\": 4744.501924612831,\n      \"item_total\": 2393.1126872445375,\n      \"amount_you_received\": 3791.7947030468445,\n      \"buyer_name\": \"string\",\n      \"buyer_email\": \"string\",\n      \"country\": \"string\"\n    },\n    {\n      \"bandcamp_transaction_id\": 4694,\n      \"bandcamp_transaction_item_id\": 6611,\n      \"bandcamp_related_transaction_id\": 944,\n      \"date\": \"string\",\n      \"item_type\": \"string\",\n      \"item_name\": \"string\",\n      \"artist\": \"string\",\n      \"currency\": \"string\",\n      \"item_price\": 8052.617886418656,\n      \"quantity\": 7272.363650507383,\n      \"sub_total\": 9803.892302823419,\n      \"additional_fan_contribution\": 215.48131311317053,\n      \"transaction_fee\": 7327.460270597255,\n      \"item_total\": 8092.536987360993,\n      \"amount_you_received\": 2709.063394129878,\n      \"buyer_name\": \"string\",\n      \"buyer_email\": \"string\",\n      \"country\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "6df447d5-a432-4172-9f91-ded8b561c388",
+          "name": "Generate a sales report asynchronously",
+          "request": {
+            "name": "Generate a sales report asynchronously",
+            "description": {},
+            "url": {
+              "path": [
+                "api",
+                "sales",
+                "4",
+                "generate_sales_report"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{bearerToken}}"
+                }
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"band_id\": \"<integer>\",\n  \"start_time\": \"<string>\",\n  \"end_time\": \"<string>\",\n  \"member_band_id\": \"<integer>\",\n  \"format\": \"json\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "1752b1f4-ccd3-4467-acd3-2e150c82ebc6",
+              "name": "Asynchronous report token",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "sales",
+                    "4",
+                    "generate_sales_report"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"band_id\": \"<integer>\",\n  \"start_time\": \"<string>\",\n  \"end_time\": \"<string>\",\n  \"member_band_id\": \"<integer>\",\n  \"format\": \"json\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"token\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "ba7a481b-33cf-4009-856c-186f757459e9",
+          "name": "Fetch a previously generated sales report",
+          "request": {
+            "name": "Fetch a previously generated sales report",
+            "description": {},
+            "url": {
+              "path": [
+                "api",
+                "sales",
+                "4",
+                "fetch_sales_report"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{bearerToken}}"
+                }
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"token\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "95d1e01b-7c8f-4091-be30-0f0e6958075b",
+              "name": "Report URL or error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "sales",
+                    "4",
+                    "fetch_sales_report"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"token\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"url\": \"http://PuvDvbxkR.vyRWiCwbkM7S0V0XeePk+bs7ELklsmEi+TkbNqhXITL+\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    },
+    {
+      "id": "2bfbc9e9-a135-4edd-914b-60465f33ea09",
+      "name": "Merch Orders",
+      "description": {
+        "content": "Merchandise order management and fulfillment",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "3dc516d4-1836-43eb-ab81-1778d3f55e2c",
+          "name": "Retrieve merchandise package details and inventory",
+          "request": {
+            "name": "Retrieve merchandise package details and inventory",
+            "description": {},
+            "url": {
+              "path": [
+                "api",
+                "merchorders",
+                "1",
+                "get_merch_details"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{bearerToken}}"
+                }
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"band_id\": \"<integer>\",\n  \"member_band_id\": \"<integer>\",\n  \"start_time\": \"<string>\",\n  \"end_time\": \"<string>\",\n  \"package_ids\": [\n    \"<integer>\",\n    \"<integer>\"\n  ]\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "3871dfb0-85b9-4152-b063-c673c2c6dc9b",
+              "name": "Merch items",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "merchorders",
+                    "1",
+                    "get_merch_details"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"band_id\": \"<integer>\",\n  \"member_band_id\": \"<integer>\",\n  \"start_time\": \"<string>\",\n  \"end_time\": \"<string>\",\n  \"package_ids\": [\n    \"<integer>\",\n    \"<integer>\"\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"success\": false,\n  \"items\": [\n    {\n      \"package_id\": 8361,\n      \"title\": \"string\",\n      \"price\": 5265.78259767391,\n      \"currency\": \"string\",\n      \"quantity_available\": 8932,\n      \"quantity_sold\": 6928,\n      \"sku\": \"string\"\n    },\n    {\n      \"package_id\": 8673,\n      \"title\": \"string\",\n      \"price\": 261.53932500088126,\n      \"currency\": \"string\",\n      \"quantity_available\": 3404,\n      \"quantity_sold\": 9916,\n      \"sku\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "2e7d4e1f-c23f-4ae6-ace9-c4d22773cd89",
+          "name": "List shipping origins",
+          "request": {
+            "name": "List shipping origins",
+            "description": {},
+            "url": {
+              "path": [
+                "api",
+                "merchorders",
+                "1",
+                "get_shipping_origin_details"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{bearerToken}}"
+                }
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"band_id\": \"<integer>\",\n  \"origin_id\": \"<integer>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "a513b69e-073d-4855-8ec2-1fe486a34973",
+              "name": "Shipping origins",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "merchorders",
+                    "1",
+                    "get_shipping_origin_details"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"band_id\": \"<integer>\",\n  \"origin_id\": \"<integer>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"success\": false,\n  \"shipping_origins\": [\n    {\n      \"origin_id\": 7328,\n      \"band_id\": 978,\n      \"country_name\": \"string\",\n      \"state_name\": \"string\",\n      \"state_code\": \"string\"\n    },\n    {\n      \"origin_id\": 2058,\n      \"band_id\": 8778,\n      \"country_name\": \"string\",\n      \"state_name\": \"string\",\n      \"state_code\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "a3f8eb4f-c335-4743-8207-4d726e1931bf",
+          "name": "Retrieve merchandise orders",
+          "request": {
+            "name": "Retrieve merchandise orders",
+            "description": {},
+            "url": {
+              "path": [
+                "api",
+                "merchorders",
+                "4",
+                "get_orders"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{bearerToken}}"
+                }
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"band_id\": \"<integer>\",\n  \"member_band_id\": \"<integer>\",\n  \"start_time\": \"<string>\",\n  \"end_time\": \"<string>\",\n  \"unshipped_only\": \"<boolean>\",\n  \"name\": \"<string>\",\n  \"origin_id\": \"<integer>\",\n  \"format\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "ae51b1e1-3860-4285-9a28-7937d7c3bc60",
+              "name": "Orders list",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "merchorders",
+                    "4",
+                    "get_orders"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"band_id\": \"<integer>\",\n  \"member_band_id\": \"<integer>\",\n  \"start_time\": \"<string>\",\n  \"end_time\": \"<string>\",\n  \"unshipped_only\": \"<boolean>\",\n  \"name\": \"<string>\",\n  \"origin_id\": \"<integer>\",\n  \"format\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"success\": true,\n  \"items\": [\n    {\n      \"sale_item_id\": 4390,\n      \"payment_id\": 8925,\n      \"order_date\": \"string\",\n      \"buyer_name\": \"string\",\n      \"buyer_email\": \"string\",\n      \"ship_to_name\": \"string\",\n      \"ship_to_street\": \"string\",\n      \"ship_to_city\": \"string\",\n      \"ship_to_state\": \"string\",\n      \"ship_to_zip\": \"string\",\n      \"ship_to_country\": \"string\",\n      \"payment_state\": \"string\",\n      \"ship_date\": \"string\"\n    },\n    {\n      \"sale_item_id\": 2824,\n      \"payment_id\": 3413,\n      \"order_date\": \"string\",\n      \"buyer_name\": \"string\",\n      \"buyer_email\": \"string\",\n      \"ship_to_name\": \"string\",\n      \"ship_to_street\": \"string\",\n      \"ship_to_city\": \"string\",\n      \"ship_to_state\": \"string\",\n      \"ship_to_zip\": \"string\",\n      \"ship_to_country\": \"string\",\n      \"payment_state\": \"string\",\n      \"ship_date\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "f04a3f3a-f61b-4945-bdc9-77ae23db9a95",
+          "name": "Mark merchandise items as shipped",
+          "request": {
+            "name": "Mark merchandise items as shipped",
+            "description": {},
+            "url": {
+              "path": [
+                "api",
+                "merchorders",
+                "2",
+                "update_shipped"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{bearerToken}}"
+                }
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"items\": [\n    {\n      \"id\": \"<integer>\",\n      \"id_type\": \"<string>\",\n      \"shipped\": true,\n      \"notification\": \"<boolean>\",\n      \"notification_message\": \"<string>\",\n      \"ship_date\": \"<string>\",\n      \"carrier\": \"<string>\",\n      \"tracking_code\": \"<string>\"\n    },\n    {\n      \"id\": \"<integer>\",\n      \"id_type\": \"<string>\",\n      \"shipped\": true,\n      \"notification\": \"<boolean>\",\n      \"notification_message\": \"<string>\",\n      \"ship_date\": \"<string>\",\n      \"carrier\": \"<string>\",\n      \"tracking_code\": \"<string>\"\n    }\n  ]\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "6c288d84-7fe6-4181-bf53-568a40e69e5d",
+              "name": "Update result",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "merchorders",
+                    "2",
+                    "update_shipped"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"items\": [\n    {\n      \"id\": \"<integer>\",\n      \"id_type\": \"<string>\",\n      \"shipped\": true,\n      \"notification\": \"<boolean>\",\n      \"notification_message\": \"<string>\",\n      \"ship_date\": \"<string>\",\n      \"carrier\": \"<string>\",\n      \"tracking_code\": \"<string>\"\n    },\n    {\n      \"id\": \"<integer>\",\n      \"id_type\": \"<string>\",\n      \"shipped\": true,\n      \"notification\": \"<boolean>\",\n      \"notification_message\": \"<string>\",\n      \"ship_date\": \"<string>\",\n      \"carrier\": \"<string>\",\n      \"tracking_code\": \"<string>\"\n    }\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"success\": false\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "c561a5c0-e75e-45a6-80db-4b426bb118a3",
+          "name": "Mark all merch orders in a date range as shipped",
+          "request": {
+            "name": "Mark all merch orders in a date range as shipped",
+            "description": {},
+            "url": {
+              "path": [
+                "api",
+                "merchorders",
+                "1",
+                "mark_date_range_as_shipped"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{bearerToken}}"
+                }
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"band_id\": \"<integer>\",\n  \"end_time\": \"<string>\",\n  \"member_band_id\": \"<integer>\",\n  \"start_time\": \"<string>\",\n  \"origin_id\": \"<integer>\",\n  \"email_notifications\": \"<boolean>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "1350fce6-cb3f-4464-ad36-545e521e9242",
+              "name": "Items marked shipped",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "merchorders",
+                    "1",
+                    "mark_date_range_as_shipped"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"band_id\": \"<integer>\",\n  \"end_time\": \"<string>\",\n  \"member_band_id\": \"<integer>\",\n  \"start_time\": \"<string>\",\n  \"origin_id\": \"<integer>\",\n  \"email_notifications\": \"<boolean>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"success\": false,\n  \"items\": [\n    {\n      \"sale_item_id\": 4029,\n      \"title\": \"string\",\n      \"buyer_name\": \"string\"\n    },\n    {\n      \"sale_item_id\": 7390,\n      \"title\": \"string\",\n      \"buyer_name\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "ab0367a3-c993-4536-a2dc-1372398e1b8b",
+          "name": "Update merchandise inventory quantities",
+          "request": {
+            "name": "Update merchandise inventory quantities",
+            "description": {},
+            "url": {
+              "path": [
+                "api",
+                "merchorders",
+                "1",
+                "update_quantities"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{bearerToken}}"
+                }
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"items\": [\n    {\n      \"id\": \"<integer>\",\n      \"id_type\": \"<string>\",\n      \"quantity_sold\": \"<integer>\",\n      \"quantity_available\": \"<integer>\",\n      \"origin_id\": \"<integer>\"\n    },\n    {\n      \"id\": \"<integer>\",\n      \"id_type\": \"<string>\",\n      \"quantity_sold\": \"<integer>\",\n      \"quantity_available\": \"<integer>\",\n      \"origin_id\": \"<integer>\"\n    }\n  ]\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "d4d39878-17ed-43fd-8f1e-dbfffd517497",
+              "name": "Quantities updated",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "merchorders",
+                    "1",
+                    "update_quantities"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"items\": [\n    {\n      \"id\": \"<integer>\",\n      \"id_type\": \"<string>\",\n      \"quantity_sold\": \"<integer>\",\n      \"quantity_available\": \"<integer>\",\n      \"origin_id\": \"<integer>\"\n    },\n    {\n      \"id\": \"<integer>\",\n      \"id_type\": \"<string>\",\n      \"quantity_sold\": \"<integer>\",\n      \"quantity_available\": \"<integer>\",\n      \"origin_id\": \"<integer>\"\n    }\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"success\": false\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "c563bbcc-b9fe-43db-a488-66969049dacb",
+          "name": "Update merchandise SKUs",
+          "request": {
+            "name": "Update merchandise SKUs",
+            "description": {},
+            "url": {
+              "path": [
+                "api",
+                "merchorders",
+                "1",
+                "update_sku"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{bearerToken}}"
+                }
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"items\": [\n    {\n      \"id\": \"<integer>\",\n      \"id_type\": \"<string>\",\n      \"sku\": \"<string>\"\n    },\n    {\n      \"id\": \"<integer>\",\n      \"id_type\": \"<string>\",\n      \"sku\": \"<string>\"\n    }\n  ]\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "80063fa9-dc25-4031-9863-bfea63c49354",
+              "name": "SKUs updated",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "merchorders",
+                    "1",
+                    "update_sku"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"items\": [\n    {\n      \"id\": \"<integer>\",\n      \"id_type\": \"<string>\",\n      \"sku\": \"<string>\"\n    },\n    {\n      \"id\": \"<integer>\",\n      \"id_type\": \"<string>\",\n      \"sku\": \"<string>\"\n    }\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"success\": false\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://bandcamp.com",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "43c1a2ba-1cef-4cc0-88b7-8c38574f5be8",
+    "name": "Bandcamp API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Bandcamp's gated artist/label/merch-fulfillment API. Provides account, sales reporting, and merchandise order management endpoints. Access is granted on request and uses OAuth 2.0 (client credentials grant) with one-hour access tokens that may be refreshed. All API requests use POST with a Bearer token in the Authorization header.\n\nContact Support:\n Name: Bandcamp Developer",
+      "type": "text/plain"
+    }
+  }
+}
