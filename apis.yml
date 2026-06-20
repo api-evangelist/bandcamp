@@ -6,7 +6,7 @@ description: >-
   Bandcamp is an artist-direct music marketplace and streaming platform. Its developer APIs are
   limited and gated to labels and merchandise fulfillment partners; access is granted on request and
   uses OAuth 2.0.
-image: https://kinlane-productions.s3.amazonaws.com/apis-json/apis-json-logo.jpg
+image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
 tags:
   - Music
   - Marketplace
