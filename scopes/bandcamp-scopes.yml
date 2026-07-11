@@ -1,0 +1,13 @@
+generated: '2026-07-11'
+method: derived
+source: openapi/bandcamp-openapi.yml
+docs: https://bandcamp.com/developer
+note: Bandcamp's API uses the OAuth 2.0 client_credentials grant (with refresh tokens)
+  and does not define or document any OAuth scopes (https://bandcamp.com/developer).
+schemes:
+- name: oauth2
+  source: openapi/bandcamp-openapi.yml
+  flows:
+  - flow: clientCredentials
+    tokenUrl: https://bandcamp.com/oauth_token
+scopes: []

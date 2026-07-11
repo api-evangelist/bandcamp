@@ -60,6 +60,8 @@ apis:
       - type: Documentation
         url: https://bandcamp.com/developer/merch
 common:
+  - type: OAuthScopes
+    url: scopes/bandcamp-scopes.yml
   - type: LinkedIn
     url: https://www.linkedin.com/company/bandcamp
   - type: Website
@@ -72,6 +74,8 @@ common:
     url: rate-limits/bandcamp-rate-limits.yml
   - type: FinOps
     url: finops/bandcamp-finops.yml
+  - url: https://blog.bandcamp.com/feed/
+    type: Blog
 maintainers:
   - FN: Kin Lane
     email: kin@apievangelist.com
