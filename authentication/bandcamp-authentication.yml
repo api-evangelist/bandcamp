@@ -1,0 +1,25 @@
+generated: '2026-07-11'
+method: derived
+source: openapi/bandcamp-openapi.yml
+summary:
+  types:
+  - http
+  - oauth2
+  oauth2_flows:
+  - clientCredentials
+schemes:
+- name: bearerAuth
+  type: http
+  scheme: bearer
+  bearerFormat: JWT
+  description: OAuth 2.0 access token returned by `/oauth_token`.
+  sources:
+  - openapi/bandcamp-openapi.yml
+- name: oauth2
+  type: oauth2
+  flows:
+  - flow: clientCredentials
+    tokenUrl: https://bandcamp.com/oauth_token
+    scopes: 0
+  sources:
+  - openapi/bandcamp-openapi.yml

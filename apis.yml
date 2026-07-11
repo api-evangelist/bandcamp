@@ -60,6 +60,10 @@ apis:
       - type: Documentation
         url: https://bandcamp.com/developer/merch
 common:
+  - type: DomainSecurity
+    url: security/bandcamp-domain-security.yml
+  - type: Authentication
+    url: authentication/bandcamp-authentication.yml
   - type: OAuthScopes
     url: scopes/bandcamp-scopes.yml
   - type: LinkedIn
