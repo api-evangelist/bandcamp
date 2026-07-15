@@ -60,6 +60,8 @@ apis:
       - type: Documentation
         url: https://bandcamp.com/developer/merch
 common:
+  - type: AgenticAccess
+    url: agentic-access/bandcamp-agentic-access.yml
   - type: DomainSecurity
     url: security/bandcamp-domain-security.yml
   - type: Authentication
