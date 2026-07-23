@@ -1,0 +1,197 @@
+openapi: 3.1.0
+info:
+  title: Bandcamp Account Sales API
+  version: 1.0.0
+  description: Bandcamp's gated artist/label/merch-fulfillment API. Provides account, sales reporting, and merchandise order management endpoints. Access is granted on request and uses OAuth 2.0 (client credentials grant) with one-hour access tokens that may be refreshed. All API requests use POST with a Bearer token in the Authorization header.
+  contact:
+    name: Bandcamp Developer
+    url: https://bandcamp.com/developer
+servers:
+- url: https://bandcamp.com
+  description: Production
+tags:
+- name: Sales
+  description: Sales reporting for labels
+paths:
+  /api/sales/4/sales_report:
+    post:
+      tags:
+      - Sales
+      summary: Retrieve a synchronous sales report
+      security:
+      - bearerAuth: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+              - band_id
+              - start_time
+              properties:
+                band_id:
+                  type: integer
+                  description: Unique identifier for the band or label.
+                start_time:
+                  type: string
+                  description: Earliest UTC sale time to include (ISO 8601).
+                end_time:
+                  type: string
+                  description: Latest UTC sale time to exclude. Defaults to now.
+                member_band_id:
+                  type: integer
+                  description: Filter to a specific band within a label.
+                format:
+                  type: string
+                  enum:
+                  - json
+                  default: json
+      responses:
+        '200':
+          description: Sales report
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SalesReportResponse'
+  /api/sales/4/generate_sales_report:
+    post:
+      tags:
+      - Sales
+      summary: Generate a sales report asynchronously
+      security:
+      - bearerAuth: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+              - band_id
+              - start_time
+              properties:
+                band_id:
+                  type: integer
+                start_time:
+                  type: string
+                end_time:
+                  type: string
+                member_band_id:
+                  type: integer
+                format:
+                  type: string
+                  enum:
+                  - csv
+                  - json
+                  default: json
+      responses:
+        '200':
+          description: Asynchronous report token
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  token:
+                    type: string
+  /api/sales/4/fetch_sales_report:
+    post:
+      tags:
+      - Sales
+      summary: Fetch a previously generated sales report
+      security:
+      - bearerAuth: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+              - token
+              properties:
+                token:
+                  type: string
+      responses:
+        '200':
+          description: Report URL or error
+          content:
+            application/json:
+              schema:
+                oneOf:
+                - type: object
+                  properties:
+                    url:
+                      type: string
+                      format: uri
+                - $ref: '#/components/schemas/Error'
+components:
+  schemas:
+    SalesRow:
+      type: object
+      properties:
+        bandcamp_transaction_id:
+          type: integer
+        bandcamp_transaction_item_id:
+          type: integer
+        bandcamp_related_transaction_id:
+          type:
+          - integer
+          - 'null'
+        date:
+          type: string
+        item_type:
+          type: string
+        item_name:
+          type: string
+        artist:
+          type: string
+        currency:
+          type: string
+        item_price:
+          type: number
+        quantity:
+          type: number
+        sub_total:
+          type: number
+        additional_fan_contribution:
+          type: number
+        transaction_fee:
+          type: number
+        item_total:
+          type: number
+        amount_you_received:
+          type: number
+        buyer_name:
+          type: string
+        buyer_email:
+          type: string
+        country:
+          type: string
+    SalesReportResponse:
+      type: object
+      properties:
+        report:
+          type: array
+          items:
+            $ref: '#/components/schemas/SalesRow'
+    Error:
+      type: object
+      properties:
+        error:
+          type: boolean
+        error_message:
+          type: string
+  securitySchemes:
+    bearerAuth:
+      type: http
+      scheme: bearer
+      bearerFormat: JWT
+      description: OAuth 2.0 access token returned by `/oauth_token`.
+    oauth2:
+      type: oauth2
+      flows:
+        clientCredentials:
+          tokenUrl: https://bandcamp.com/oauth_token
+          scopes: {}

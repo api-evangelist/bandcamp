@@ -1,0 +1,418 @@
+openapi: 3.1.0
+info:
+  title: Bandcamp Account Merch Orders API
+  version: 1.0.0
+  description: Bandcamp's gated artist/label/merch-fulfillment API. Provides account, sales reporting, and merchandise order management endpoints. Access is granted on request and uses OAuth 2.0 (client credentials grant) with one-hour access tokens that may be refreshed. All API requests use POST with a Bearer token in the Authorization header.
+  contact:
+    name: Bandcamp Developer
+    url: https://bandcamp.com/developer
+servers:
+- url: https://bandcamp.com
+  description: Production
+tags:
+- name: Merch Orders
+  description: Merchandise order management and fulfillment
+paths:
+  /api/merchorders/1/get_merch_details:
+    post:
+      tags:
+      - Merch Orders
+      summary: Retrieve merchandise package details and inventory
+      security:
+      - bearerAuth: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+              - band_id
+              properties:
+                band_id:
+                  type: integer
+                member_band_id:
+                  type: integer
+                start_time:
+                  type: string
+                end_time:
+                  type: string
+                package_ids:
+                  type: array
+                  items:
+                    type: integer
+      responses:
+        '200':
+          description: Merch items
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  success:
+                    type: boolean
+                  items:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/MerchItem'
+  /api/merchorders/1/get_shipping_origin_details:
+    post:
+      tags:
+      - Merch Orders
+      summary: List shipping origins
+      security:
+      - bearerAuth: []
+      requestBody:
+        required: false
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                band_id:
+                  type: integer
+                origin_id:
+                  type: integer
+      responses:
+        '200':
+          description: Shipping origins
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  success:
+                    type: boolean
+                  shipping_origins:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/ShippingOrigin'
+  /api/merchorders/4/get_orders:
+    post:
+      tags:
+      - Merch Orders
+      summary: Retrieve merchandise orders
+      security:
+      - bearerAuth: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+              - band_id
+              properties:
+                band_id:
+                  type: integer
+                member_band_id:
+                  type: integer
+                start_time:
+                  type: string
+                end_time:
+                  type: string
+                unshipped_only:
+                  type: boolean
+                name:
+                  type: string
+                origin_id:
+                  type: integer
+                format:
+                  type: string
+                  enum:
+                  - csv
+                  - json
+      responses:
+        '200':
+          description: Orders list
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  success:
+                    type: boolean
+                  items:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/Order'
+  /api/merchorders/2/update_shipped:
+    post:
+      tags:
+      - Merch Orders
+      summary: Mark merchandise items as shipped
+      security:
+      - bearerAuth: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+              - items
+              properties:
+                items:
+                  type: array
+                  items:
+                    type: object
+                    required:
+                    - id
+                    - id_type
+                    properties:
+                      id:
+                        type: integer
+                      id_type:
+                        type: string
+                        enum:
+                        - p
+                        - s
+                        description: '`p` for payment, `s` for sale item.'
+                      shipped:
+                        type: boolean
+                        default: true
+                      notification:
+                        type: boolean
+                      notification_message:
+                        type: string
+                      ship_date:
+                        type: string
+                      carrier:
+                        type: string
+                      tracking_code:
+                        type: string
+      responses:
+        '200':
+          description: Update result
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  success:
+                    type: boolean
+  /api/merchorders/1/mark_date_range_as_shipped:
+    post:
+      tags:
+      - Merch Orders
+      summary: Mark all merch orders in a date range as shipped
+      security:
+      - bearerAuth: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+              - band_id
+              - end_time
+              properties:
+                band_id:
+                  type: integer
+                end_time:
+                  type: string
+                member_band_id:
+                  type: integer
+                start_time:
+                  type: string
+                origin_id:
+                  type: integer
+                email_notifications:
+                  type: boolean
+      responses:
+        '200':
+          description: Items marked shipped
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  success:
+                    type: boolean
+                  items:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        sale_item_id:
+                          type: integer
+                        title:
+                          type: string
+                        buyer_name:
+                          type: string
+  /api/merchorders/1/update_quantities:
+    post:
+      tags:
+      - Merch Orders
+      summary: Update merchandise inventory quantities
+      security:
+      - bearerAuth: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+              - items
+              properties:
+                items:
+                  type: array
+                  items:
+                    type: object
+                    required:
+                    - id
+                    - id_type
+                    - quantity_sold
+                    - quantity_available
+                    properties:
+                      id:
+                        type: integer
+                      id_type:
+                        type: string
+                        enum:
+                        - p
+                        - o
+                        description: '`p` for package, `o` for option.'
+                      quantity_sold:
+                        type: integer
+                      quantity_available:
+                        type: integer
+                      origin_id:
+                        type: integer
+      responses:
+        '200':
+          description: Quantities updated
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  success:
+                    type: boolean
+  /api/merchorders/1/update_sku:
+    post:
+      tags:
+      - Merch Orders
+      summary: Update merchandise SKUs
+      security:
+      - bearerAuth: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+              - items
+              properties:
+                items:
+                  type: array
+                  items:
+                    type: object
+                    required:
+                    - id
+                    - id_type
+                    - sku
+                    properties:
+                      id:
+                        type: integer
+                      id_type:
+                        type: string
+                        enum:
+                        - p
+                        - o
+                      sku:
+                        type: string
+      responses:
+        '200':
+          description: SKUs updated
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  success:
+                    type: boolean
+components:
+  schemas:
+    ShippingOrigin:
+      type: object
+      properties:
+        origin_id:
+          type: integer
+        band_id:
+          type: integer
+        country_name:
+          type: string
+        state_name:
+          type: string
+        state_code:
+          type: string
+    Order:
+      type: object
+      properties:
+        sale_item_id:
+          type: integer
+        payment_id:
+          type: integer
+        order_date:
+          type: string
+        buyer_name:
+          type: string
+        buyer_email:
+          type: string
+        ship_to_name:
+          type: string
+        ship_to_street:
+          type: string
+        ship_to_city:
+          type: string
+        ship_to_state:
+          type: string
+        ship_to_zip:
+          type: string
+        ship_to_country:
+          type: string
+        payment_state:
+          type: string
+        ship_date:
+          type: string
+    MerchItem:
+      type: object
+      properties:
+        package_id:
+          type: integer
+        title:
+          type: string
+        price:
+          type: number
+        currency:
+          type: string
+        quantity_available:
+          type: integer
+        quantity_sold:
+          type: integer
+        sku:
+          type: string
+        options:
+          type: array
+          items:
+            type: object
+        origin_quantities:
+          type: array
+          items:
+            type: object
+  securitySchemes:
+    bearerAuth:
+      type: http
+      scheme: bearer
+      bearerFormat: JWT
+      description: OAuth 2.0 access token returned by `/oauth_token`.
+    oauth2:
+      type: oauth2
+      flows:
+        clientCredentials:
+          tokenUrl: https://bandcamp.com/oauth_token
+          scopes: {}

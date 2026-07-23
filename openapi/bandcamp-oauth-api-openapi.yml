@@ -1,0 +1,76 @@
+openapi: 3.1.0
+info:
+  title: Bandcamp Account OAuth API
+  version: 1.0.0
+  description: Bandcamp's gated artist/label/merch-fulfillment API. Provides account, sales reporting, and merchandise order management endpoints. Access is granted on request and uses OAuth 2.0 (client credentials grant) with one-hour access tokens that may be refreshed. All API requests use POST with a Bearer token in the Authorization header.
+  contact:
+    name: Bandcamp Developer
+    url: https://bandcamp.com/developer
+servers:
+- url: https://bandcamp.com
+  description: Production
+tags:
+- name: OAuth
+  description: OAuth 2.0 token issuance and refresh
+paths:
+  /oauth_token:
+    post:
+      tags:
+      - OAuth
+      summary: Issue or refresh an access token
+      description: Obtain an access token using either the `client_credentials` grant (initial issuance) or the `refresh_token` grant (refresh an expired token). Tokens expire after one hour.
+      requestBody:
+        required: true
+        content:
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              required:
+              - grant_type
+              - client_id
+              - client_secret
+              properties:
+                grant_type:
+                  type: string
+                  enum:
+                  - client_credentials
+                  - refresh_token
+                client_id:
+                  type: string
+                client_secret:
+                  type: string
+                refresh_token:
+                  type: string
+                  description: Required when grant_type is `refresh_token`.
+      responses:
+        '200':
+          description: Token response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/TokenResponse'
+components:
+  schemas:
+    TokenResponse:
+      type: object
+      properties:
+        access_token:
+          type: string
+        token_type:
+          type: string
+        expires_in:
+          type: integer
+        refresh_token:
+          type: string
+  securitySchemes:
+    bearerAuth:
+      type: http
+      scheme: bearer
+      bearerFormat: JWT
+      description: OAuth 2.0 access token returned by `/oauth_token`.
+    oauth2:
+      type: oauth2
+      flows:
+        clientCredentials:
+          tokenUrl: https://bandcamp.com/oauth_token
+          scopes: {}

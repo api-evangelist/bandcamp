@@ -1,0 +1,70 @@
+openapi: 3.1.0
+info:
+  title: Bandcamp Account API
+  version: 1.0.0
+  description: Bandcamp's gated artist/label/merch-fulfillment API. Provides account, sales reporting, and merchandise order management endpoints. Access is granted on request and uses OAuth 2.0 (client credentials grant) with one-hour access tokens that may be refreshed. All API requests use POST with a Bearer token in the Authorization header.
+  contact:
+    name: Bandcamp Developer
+    url: https://bandcamp.com/developer
+servers:
+- url: https://bandcamp.com
+  description: Production
+tags:
+- name: Account
+  description: Account and band information
+paths:
+  /api/account/1/my_bands:
+    post:
+      tags:
+      - Account
+      summary: List bands accessible to the authenticated account
+      security:
+      - bearerAuth: []
+      responses:
+        '200':
+          description: Bands list
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/MyBandsResponse'
+components:
+  schemas:
+    MyBandsResponse:
+      type: object
+      properties:
+        bands:
+          type: array
+          items:
+            $ref: '#/components/schemas/Band'
+    Band:
+      type: object
+      properties:
+        subdomain:
+          type: string
+        band_id:
+          type: integer
+        name:
+          type: string
+        member_bands:
+          type: array
+          items:
+            type: object
+            properties:
+              subdomain:
+                type: string
+              band_id:
+                type: integer
+              name:
+                type: string
+  securitySchemes:
+    bearerAuth:
+      type: http
+      scheme: bearer
+      bearerFormat: JWT
+      description: OAuth 2.0 access token returned by `/oauth_token`.
+    oauth2:
+      type: oauth2
+      flows:
+        clientCredentials:
+          tokenUrl: https://bandcamp.com/oauth_token
+          scopes: {}
