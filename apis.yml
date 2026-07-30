@@ -6,7 +6,20 @@ description: >-
   Bandcamp is an artist-direct music marketplace and streaming platform. Its developer APIs are
   limited and gated to labels and merchandise fulfillment partners; access is granted on request and
   uses OAuth 2.0.
-image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
+accessModel:
+  pricing: unknown
+  onboarding: self-serve
+  trial: false
+  try_now: false
+  public: false
+  label: Self-serve signup
+  confidence: high
+  source:
+  - plans
+  - authentication
+  generated: '2026-07-22'
+  method: derived
+image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/icons/bandcamp.png
 tags:
   - Music
   - Marketplace
@@ -18,47 +31,87 @@ created: '2026-05-08'
 modified: '2026-05-08'
 specificationVersion: '0.19'
 apis:
-  - aid: bandcamp:account
-    name: Bandcamp Account API
-    description: >-
-      Account API for retrieving the list of bands a user manages and basic account metadata. OAuth 2.0
-      client credentials with token endpoint at /oauth_token; access tokens expire after one hour.
-    humanURL: https://bandcamp.com/developer
-    baseURL: https://bandcamp.com/api
-    tags:
-      - Account
-      - Bands
-    properties:
-      - type: Documentation
-        url: https://bandcamp.com/developer
-  - aid: bandcamp:sales-report
-    name: Bandcamp Sales Report API
-    description: >-
-      Sales Report API for labels: retrieves sales line items (digital, physical, merch, subscriptions)
-      over a date range. Restricted to labels.
-    humanURL: https://bandcamp.com/developer/sales
-    baseURL: https://bandcamp.com/api
-    tags:
-      - Sales
-      - Reporting
-      - Labels
-    properties:
-      - type: Documentation
-        url: https://bandcamp.com/developer/sales
-  - aid: bandcamp:merch-orders
-    name: Bandcamp Merch Orders API
-    description: >-
-      Merch Orders API for fulfillment partners: list and update merchandise orders (mark shipped, set
-      tracking). Restricted to merchandise fulfillment partners.
-    humanURL: https://bandcamp.com/developer/merch
-    baseURL: https://bandcamp.com/api
-    tags:
-      - Merch
-      - Orders
-      - Fulfillment
-    properties:
-      - type: Documentation
-        url: https://bandcamp.com/developer/merch
+- aid: bandcamp:account
+  name: Bandcamp Account API
+  description: >-
+    Account API for retrieving the list of bands a user manages and basic account metadata. OAuth 2.0
+    client credentials with token endpoint at /oauth_token; access tokens expire after one hour.
+  humanURL: https://bandcamp.com/developer
+  baseURL: https://bandcamp.com/api
+  tags:
+  - Account
+  - Bands
+  properties:
+  - type: Documentation
+    url: https://bandcamp.com/developer
+- aid: bandcamp:sales-report
+  name: Bandcamp Sales Report API
+  description: >-
+    Sales Report API for labels: retrieves sales line items (digital, physical, merch, subscriptions)
+    over a date range. Restricted to labels.
+  humanURL: https://bandcamp.com/developer/sales
+  baseURL: https://bandcamp.com/api
+  tags:
+  - Sales
+  - Reporting
+  - Labels
+  properties:
+  - type: Documentation
+    url: https://bandcamp.com/developer/sales
+- aid: bandcamp:merch-orders
+  name: Bandcamp Merch Orders API
+  description: >-
+    Merch Orders API for fulfillment partners: list and update merchandise orders (mark shipped, set tracking).
+    Restricted to merchandise fulfillment partners.
+  humanURL: https://bandcamp.com/developer/merch
+  baseURL: https://bandcamp.com/api
+  tags:
+  - Merch
+  - Orders
+  - Fulfillment
+  properties:
+  - type: Documentation
+    url: https://bandcamp.com/developer/merch
+- aid: bandcamp:bandcamp-account-api
+  name: Bandcamp Account API
+  description: Account and band information
+  humanURL: https://bandcamp.com/developer
+  baseURL: https://bandcamp.com/api
+  tags:
+  - Account
+  properties:
+  - type: OpenAPI
+    url: openapi/bandcamp-account-api-openapi.yml
+- aid: bandcamp:bandcamp-merch-orders-api
+  name: Bandcamp Merch Orders API
+  description: Merchandise order management and fulfillment
+  humanURL: https://bandcamp.com/developer
+  baseURL: https://bandcamp.com/api
+  tags:
+  - Merch Orders
+  properties:
+  - type: OpenAPI
+    url: openapi/bandcamp-merch-orders-api-openapi.yml
+- aid: bandcamp:bandcamp-oauth-api
+  name: Bandcamp OAuth API
+  description: OAuth 2.0 token issuance and refresh
+  humanURL: https://bandcamp.com/developer
+  baseURL: https://bandcamp.com/api
+  tags:
+  - OAuth
+  properties:
+  - type: OpenAPI
+    url: openapi/bandcamp-oauth-api-openapi.yml
+- aid: bandcamp:bandcamp-sales-api
+  name: Bandcamp Sales API
+  description: Sales reporting for labels
+  humanURL: https://bandcamp.com/developer
+  baseURL: https://bandcamp.com/api
+  tags:
+  - Sales
+  properties:
+  - type: OpenAPI
+    url: openapi/bandcamp-sales-api-openapi.yml
 common:
   - type: AgenticAccess
     url: agentic-access/bandcamp-agentic-access.yml
