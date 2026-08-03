@@ -1,0 +1,20 @@
+{
+  "provider": "bandcamp",
+  "sources": [
+    "bandcamp-account-api-openapi.yml",
+    "bandcamp-merch-orders-api-openapi.yml",
+    "bandcamp-oauth-api-openapi.yml",
+    "bandcamp-sales-api-openapi.yml"
+  ],
+  "outputs": [
+    "bandcamp-account-api-openapi.yml",
+    "bandcamp-merch-orders-api-openapi.yml",
+    "bandcamp-oauth-api-openapi.yml",
+    "bandcamp-sales-api-openapi.yml"
+  ],
+  "archived": [],
+  "errors": [],
+  "warnings": [],
+  "notes": [],
+  "skipped": []
+}
