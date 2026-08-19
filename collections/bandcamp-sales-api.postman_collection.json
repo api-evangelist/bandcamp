@@ -1,0 +1,362 @@
+{
+  "item": [
+    {
+      "id": "d89e93dd-4f64-4fbd-8efd-2af511bc4b71",
+      "name": "Sales",
+      "description": {
+        "content": "Sales reporting for labels",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "e2bbcbc0-cf5e-4551-bc8f-8f6c222fac05",
+          "name": "Retrieve a synchronous sales report",
+          "request": {
+            "name": "Retrieve a synchronous sales report",
+            "description": {},
+            "url": {
+              "path": [
+                "api",
+                "sales",
+                "4",
+                "sales_report"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{bearerToken}}"
+                }
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"band_id\": \"<integer>\",\n  \"start_time\": \"<string>\",\n  \"end_time\": \"<string>\",\n  \"member_band_id\": \"<integer>\",\n  \"format\": \"json\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "2cbe045a-a4dd-42d4-9eeb-e83a7bef99c8",
+              "name": "Sales report",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "sales",
+                    "4",
+                    "sales_report"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"band_id\": \"<integer>\",\n  \"start_time\": \"<string>\",\n  \"end_time\": \"<string>\",\n  \"member_band_id\": \"<integer>\",\n  \"format\": \"json\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"report\": [\n    {\n      \"bandcamp_transaction_id\": 3272,\n      \"bandcamp_transaction_item_id\": 4384,\n      \"bandcamp_related_transaction_id\": 5237,\n      \"date\": \"string\",\n      \"item_type\": \"string\",\n      \"item_name\": \"string\",\n      \"artist\": \"string\",\n      \"currency\": \"string\",\n      \"item_price\": 5091.559605896804,\n      \"quantity\": 6532.158246830718,\n      \"sub_total\": 1849.0440950764032,\n      \"additional_fan_contribution\": 8144.416046799599,\n      \"transaction_fee\": 9620.307452296696,\n      \"item_total\": 6217.443212345829,\n      \"amount_you_received\": 7281.95067299079,\n      \"buyer_name\": \"string\",\n      \"buyer_email\": \"string\",\n      \"country\": \"string\"\n    },\n    {\n      \"bandcamp_transaction_id\": 1912,\n      \"bandcamp_transaction_item_id\": 9914,\n      \"bandcamp_related_transaction_id\": 6137,\n      \"date\": \"string\",\n      \"item_type\": \"string\",\n      \"item_name\": \"string\",\n      \"artist\": \"string\",\n      \"currency\": \"string\",\n      \"item_price\": 6545.156716965243,\n      \"quantity\": 7289.682986315735,\n      \"sub_total\": 8687.586016787574,\n      \"additional_fan_contribution\": 2101.1147682700994,\n      \"transaction_fee\": 9903.066366906094,\n      \"item_total\": 7427.319387940753,\n      \"amount_you_received\": 4781.412279511653,\n      \"buyer_name\": \"string\",\n      \"buyer_email\": \"string\",\n      \"country\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "0afadee7-5366-4ad1-82e6-d67d0eadcb8e",
+          "name": "Generate a sales report asynchronously",
+          "request": {
+            "name": "Generate a sales report asynchronously",
+            "description": {},
+            "url": {
+              "path": [
+                "api",
+                "sales",
+                "4",
+                "generate_sales_report"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{bearerToken}}"
+                }
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"band_id\": \"<integer>\",\n  \"start_time\": \"<string>\",\n  \"end_time\": \"<string>\",\n  \"member_band_id\": \"<integer>\",\n  \"format\": \"json\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "cf63313a-2bf6-4467-bbfd-156a60d3613f",
+              "name": "Asynchronous report token",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "sales",
+                    "4",
+                    "generate_sales_report"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"band_id\": \"<integer>\",\n  \"start_time\": \"<string>\",\n  \"end_time\": \"<string>\",\n  \"member_band_id\": \"<integer>\",\n  \"format\": \"json\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"token\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "423fd3f4-cf72-44d7-a136-3bb1bcd50c14",
+          "name": "Fetch a previously generated sales report",
+          "request": {
+            "name": "Fetch a previously generated sales report",
+            "description": {},
+            "url": {
+              "path": [
+                "api",
+                "sales",
+                "4",
+                "fetch_sales_report"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{bearerToken}}"
+                }
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"token\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "a41909a1-650b-42c6-86bf-c6de6ee0a05d",
+              "name": "Report URL or error",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "sales",
+                    "4",
+                    "fetch_sales_report"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"token\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"url\": \"https://sYEDRFZTgUyXfSayWsiFmDsY.whobaF1Blmq,GLnKHCo-ZB5Av.bDaWBB23QfC8wvE\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://bandcamp.com",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "9421d0bd-f170-4e64-a414-8711f28dd08a",
+    "name": "Bandcamp Account Sales API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Bandcamp's gated artist/label/merch-fulfillment API. Provides account, sales reporting, and merchandise order management endpoints. Access is granted on request and uses OAuth 2.0 (client credentials grant) with one-hour access tokens that may be refreshed. All API requests use POST with a Bearer token in the Authorization header.\n\nContact Support:\n Name: Bandcamp Developer",
+      "type": "text/plain"
+    }
+  }
+}

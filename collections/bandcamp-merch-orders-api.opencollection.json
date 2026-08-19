@@ -1,0 +1,151 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Bandcamp Account Merch Orders API",
+    "version": "1.0.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Merch Orders",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Retrieve merchandise package details and inventory",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://bandcamp.com/api/merchorders/1/get_merch_details",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "Retrieve merchandise package details and inventory"
+        },
+        {
+          "info": {
+            "name": "List shipping origins",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://bandcamp.com/api/merchorders/1/get_shipping_origin_details",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "List shipping origins"
+        },
+        {
+          "info": {
+            "name": "Retrieve merchandise orders",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://bandcamp.com/api/merchorders/4/get_orders",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "Retrieve merchandise orders"
+        },
+        {
+          "info": {
+            "name": "Mark merchandise items as shipped",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://bandcamp.com/api/merchorders/2/update_shipped",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "Mark merchandise items as shipped"
+        },
+        {
+          "info": {
+            "name": "Mark all merch orders in a date range as shipped",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://bandcamp.com/api/merchorders/1/mark_date_range_as_shipped",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "Mark all merch orders in a date range as shipped"
+        },
+        {
+          "info": {
+            "name": "Update merchandise inventory quantities",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://bandcamp.com/api/merchorders/1/update_quantities",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "Update merchandise inventory quantities"
+        },
+        {
+          "info": {
+            "name": "Update merchandise SKUs",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://bandcamp.com/api/merchorders/1/update_sku",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "Update merchandise SKUs"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

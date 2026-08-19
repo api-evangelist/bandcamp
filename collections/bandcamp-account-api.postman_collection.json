@@ -1,0 +1,121 @@
+{
+  "item": [
+    {
+      "id": "cb17bc6e-5376-4fc3-81f4-c894089ff45d",
+      "name": "Account",
+      "description": {
+        "content": "Account and band information",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "262d28d3-03b9-4e08-a3aa-157a67546354",
+          "name": "List bands accessible to the authenticated account",
+          "request": {
+            "name": "List bands accessible to the authenticated account",
+            "description": {},
+            "url": {
+              "path": [
+                "api",
+                "account",
+                "1",
+                "my_bands"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{bearerToken}}"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "e76d59ff-e15b-4d57-aa06-8b875e63f27f",
+              "name": "Bands list",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "account",
+                    "1",
+                    "my_bands"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"bands\": [\n    {\n      \"subdomain\": \"string\",\n      \"band_id\": 9448,\n      \"name\": \"string\",\n      \"member_bands\": [\n        {\n          \"subdomain\": \"string\",\n          \"band_id\": 5727,\n          \"name\": \"string\"\n        },\n        {\n          \"subdomain\": \"string\",\n          \"band_id\": 9286,\n          \"name\": \"string\"\n        }\n      ]\n    },\n    {\n      \"subdomain\": \"string\",\n      \"band_id\": 8648,\n      \"name\": \"string\",\n      \"member_bands\": [\n        {\n          \"subdomain\": \"string\",\n          \"band_id\": 927,\n          \"name\": \"string\"\n        },\n        {\n          \"subdomain\": \"string\",\n          \"band_id\": 1692,\n          \"name\": \"string\"\n        }\n      ]\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://bandcamp.com",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "f969bfaf-4050-4a42-82e5-83234abcb97e",
+    "name": "Bandcamp Account API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Bandcamp's gated artist/label/merch-fulfillment API. Provides account, sales reporting, and merchandise order management endpoints. Access is granted on request and uses OAuth 2.0 (client credentials grant) with one-hour access tokens that may be refreshed. All API requests use POST with a Bearer token in the Authorization header.\n\nContact Support:\n Name: Bandcamp Developer",
+      "type": "text/plain"
+    }
+  }
+}

@@ -1,0 +1,802 @@
+{
+  "item": [
+    {
+      "id": "584160cb-5cba-4f45-be5f-acbda908da3a",
+      "name": "Merch Orders",
+      "description": {
+        "content": "Merchandise order management and fulfillment",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "94ebfdce-2295-44da-8ee5-bc8ba1a8e5b2",
+          "name": "Retrieve merchandise package details and inventory",
+          "request": {
+            "name": "Retrieve merchandise package details and inventory",
+            "description": {},
+            "url": {
+              "path": [
+                "api",
+                "merchorders",
+                "1",
+                "get_merch_details"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{bearerToken}}"
+                }
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"band_id\": \"<integer>\",\n  \"member_band_id\": \"<integer>\",\n  \"start_time\": \"<string>\",\n  \"end_time\": \"<string>\",\n  \"package_ids\": [\n    \"<integer>\",\n    \"<integer>\"\n  ]\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "47f05dd7-fa11-4267-b49a-9e15ebcf41ae",
+              "name": "Merch items",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "merchorders",
+                    "1",
+                    "get_merch_details"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"band_id\": \"<integer>\",\n  \"member_band_id\": \"<integer>\",\n  \"start_time\": \"<string>\",\n  \"end_time\": \"<string>\",\n  \"package_ids\": [\n    \"<integer>\",\n    \"<integer>\"\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"success\": false,\n  \"items\": [\n    {\n      \"package_id\": 202,\n      \"title\": \"string\",\n      \"price\": 8728.554654380903,\n      \"currency\": \"string\",\n      \"quantity_available\": 6168,\n      \"quantity_sold\": 7548,\n      \"sku\": \"string\"\n    },\n    {\n      \"package_id\": 1850,\n      \"title\": \"string\",\n      \"price\": 1148.6534592671671,\n      \"currency\": \"string\",\n      \"quantity_available\": 1326,\n      \"quantity_sold\": 6044,\n      \"sku\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "c5b0b66a-25ec-4783-9f83-3fbd95c85c31",
+          "name": "List shipping origins",
+          "request": {
+            "name": "List shipping origins",
+            "description": {},
+            "url": {
+              "path": [
+                "api",
+                "merchorders",
+                "1",
+                "get_shipping_origin_details"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{bearerToken}}"
+                }
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"band_id\": \"<integer>\",\n  \"origin_id\": \"<integer>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "f4a0ddc8-eec3-4d93-a643-892311316530",
+              "name": "Shipping origins",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "merchorders",
+                    "1",
+                    "get_shipping_origin_details"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"band_id\": \"<integer>\",\n  \"origin_id\": \"<integer>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"success\": false,\n  \"shipping_origins\": [\n    {\n      \"origin_id\": 2404,\n      \"band_id\": 279,\n      \"country_name\": \"string\",\n      \"state_name\": \"string\",\n      \"state_code\": \"string\"\n    },\n    {\n      \"origin_id\": 3313,\n      \"band_id\": 3345,\n      \"country_name\": \"string\",\n      \"state_name\": \"string\",\n      \"state_code\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "87953776-3914-4616-adea-e830849efa01",
+          "name": "Retrieve merchandise orders",
+          "request": {
+            "name": "Retrieve merchandise orders",
+            "description": {},
+            "url": {
+              "path": [
+                "api",
+                "merchorders",
+                "4",
+                "get_orders"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{bearerToken}}"
+                }
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"band_id\": \"<integer>\",\n  \"member_band_id\": \"<integer>\",\n  \"start_time\": \"<string>\",\n  \"end_time\": \"<string>\",\n  \"unshipped_only\": \"<boolean>\",\n  \"name\": \"<string>\",\n  \"origin_id\": \"<integer>\",\n  \"format\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "e0ff1ebb-0c35-4f7f-b107-8795e42aed21",
+              "name": "Orders list",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "merchorders",
+                    "4",
+                    "get_orders"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"band_id\": \"<integer>\",\n  \"member_band_id\": \"<integer>\",\n  \"start_time\": \"<string>\",\n  \"end_time\": \"<string>\",\n  \"unshipped_only\": \"<boolean>\",\n  \"name\": \"<string>\",\n  \"origin_id\": \"<integer>\",\n  \"format\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"success\": false,\n  \"items\": [\n    {\n      \"sale_item_id\": 1837,\n      \"payment_id\": 8493,\n      \"order_date\": \"string\",\n      \"buyer_name\": \"string\",\n      \"buyer_email\": \"string\",\n      \"ship_to_name\": \"string\",\n      \"ship_to_street\": \"string\",\n      \"ship_to_city\": \"string\",\n      \"ship_to_state\": \"string\",\n      \"ship_to_zip\": \"string\",\n      \"ship_to_country\": \"string\",\n      \"payment_state\": \"string\",\n      \"ship_date\": \"string\"\n    },\n    {\n      \"sale_item_id\": 4756,\n      \"payment_id\": 2118,\n      \"order_date\": \"string\",\n      \"buyer_name\": \"string\",\n      \"buyer_email\": \"string\",\n      \"ship_to_name\": \"string\",\n      \"ship_to_street\": \"string\",\n      \"ship_to_city\": \"string\",\n      \"ship_to_state\": \"string\",\n      \"ship_to_zip\": \"string\",\n      \"ship_to_country\": \"string\",\n      \"payment_state\": \"string\",\n      \"ship_date\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "f4f333ed-7d39-4f9e-a439-b0ce6aa6605d",
+          "name": "Mark merchandise items as shipped",
+          "request": {
+            "name": "Mark merchandise items as shipped",
+            "description": {},
+            "url": {
+              "path": [
+                "api",
+                "merchorders",
+                "2",
+                "update_shipped"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{bearerToken}}"
+                }
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"items\": [\n    {\n      \"id\": \"<integer>\",\n      \"id_type\": \"<string>\",\n      \"shipped\": true,\n      \"notification\": \"<boolean>\",\n      \"notification_message\": \"<string>\",\n      \"ship_date\": \"<string>\",\n      \"carrier\": \"<string>\",\n      \"tracking_code\": \"<string>\"\n    },\n    {\n      \"id\": \"<integer>\",\n      \"id_type\": \"<string>\",\n      \"shipped\": true,\n      \"notification\": \"<boolean>\",\n      \"notification_message\": \"<string>\",\n      \"ship_date\": \"<string>\",\n      \"carrier\": \"<string>\",\n      \"tracking_code\": \"<string>\"\n    }\n  ]\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "7138223f-06dc-44df-917a-fdaf16f2b3d7",
+              "name": "Update result",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "merchorders",
+                    "2",
+                    "update_shipped"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"items\": [\n    {\n      \"id\": \"<integer>\",\n      \"id_type\": \"<string>\",\n      \"shipped\": true,\n      \"notification\": \"<boolean>\",\n      \"notification_message\": \"<string>\",\n      \"ship_date\": \"<string>\",\n      \"carrier\": \"<string>\",\n      \"tracking_code\": \"<string>\"\n    },\n    {\n      \"id\": \"<integer>\",\n      \"id_type\": \"<string>\",\n      \"shipped\": true,\n      \"notification\": \"<boolean>\",\n      \"notification_message\": \"<string>\",\n      \"ship_date\": \"<string>\",\n      \"carrier\": \"<string>\",\n      \"tracking_code\": \"<string>\"\n    }\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"success\": true\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "5e90302c-c0de-48bd-8a64-d47fd15d991c",
+          "name": "Mark all merch orders in a date range as shipped",
+          "request": {
+            "name": "Mark all merch orders in a date range as shipped",
+            "description": {},
+            "url": {
+              "path": [
+                "api",
+                "merchorders",
+                "1",
+                "mark_date_range_as_shipped"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{bearerToken}}"
+                }
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"band_id\": \"<integer>\",\n  \"end_time\": \"<string>\",\n  \"member_band_id\": \"<integer>\",\n  \"start_time\": \"<string>\",\n  \"origin_id\": \"<integer>\",\n  \"email_notifications\": \"<boolean>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "57a50447-eb71-4c5f-b897-833652835b9d",
+              "name": "Items marked shipped",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "merchorders",
+                    "1",
+                    "mark_date_range_as_shipped"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"band_id\": \"<integer>\",\n  \"end_time\": \"<string>\",\n  \"member_band_id\": \"<integer>\",\n  \"start_time\": \"<string>\",\n  \"origin_id\": \"<integer>\",\n  \"email_notifications\": \"<boolean>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"success\": false,\n  \"items\": [\n    {\n      \"sale_item_id\": 4237,\n      \"title\": \"string\",\n      \"buyer_name\": \"string\"\n    },\n    {\n      \"sale_item_id\": 8905,\n      \"title\": \"string\",\n      \"buyer_name\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "cbc907a3-2aaf-4101-a304-082afc3b6190",
+          "name": "Update merchandise inventory quantities",
+          "request": {
+            "name": "Update merchandise inventory quantities",
+            "description": {},
+            "url": {
+              "path": [
+                "api",
+                "merchorders",
+                "1",
+                "update_quantities"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{bearerToken}}"
+                }
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"items\": [\n    {\n      \"id\": \"<integer>\",\n      \"id_type\": \"<string>\",\n      \"quantity_sold\": \"<integer>\",\n      \"quantity_available\": \"<integer>\",\n      \"origin_id\": \"<integer>\"\n    },\n    {\n      \"id\": \"<integer>\",\n      \"id_type\": \"<string>\",\n      \"quantity_sold\": \"<integer>\",\n      \"quantity_available\": \"<integer>\",\n      \"origin_id\": \"<integer>\"\n    }\n  ]\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "0eedf2bf-e7d6-4f36-882c-aa8494b903bb",
+              "name": "Quantities updated",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "merchorders",
+                    "1",
+                    "update_quantities"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"items\": [\n    {\n      \"id\": \"<integer>\",\n      \"id_type\": \"<string>\",\n      \"quantity_sold\": \"<integer>\",\n      \"quantity_available\": \"<integer>\",\n      \"origin_id\": \"<integer>\"\n    },\n    {\n      \"id\": \"<integer>\",\n      \"id_type\": \"<string>\",\n      \"quantity_sold\": \"<integer>\",\n      \"quantity_available\": \"<integer>\",\n      \"origin_id\": \"<integer>\"\n    }\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"success\": true\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "b8030ee4-dbfb-49c7-983f-42b20c7a596e",
+          "name": "Update merchandise SKUs",
+          "request": {
+            "name": "Update merchandise SKUs",
+            "description": {},
+            "url": {
+              "path": [
+                "api",
+                "merchorders",
+                "1",
+                "update_sku"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{bearerToken}}"
+                }
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"items\": [\n    {\n      \"id\": \"<integer>\",\n      \"id_type\": \"<string>\",\n      \"sku\": \"<string>\"\n    },\n    {\n      \"id\": \"<integer>\",\n      \"id_type\": \"<string>\",\n      \"sku\": \"<string>\"\n    }\n  ]\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "e92ffca1-f49d-4eb3-aa28-adb1b084fa4b",
+              "name": "SKUs updated",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "merchorders",
+                    "1",
+                    "update_sku"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"items\": [\n    {\n      \"id\": \"<integer>\",\n      \"id_type\": \"<string>\",\n      \"sku\": \"<string>\"\n    },\n    {\n      \"id\": \"<integer>\",\n      \"id_type\": \"<string>\",\n      \"sku\": \"<string>\"\n    }\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"success\": true\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://bandcamp.com",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "f6cad1d2-80d7-4658-ad2c-9ddcfba27417",
+    "name": "Bandcamp Account Merch Orders API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Bandcamp's gated artist/label/merch-fulfillment API. Provides account, sales reporting, and merchandise order management endpoints. Access is granted on request and uses OAuth 2.0 (client credentials grant) with one-hour access tokens that may be refreshed. All API requests use POST with a Bearer token in the Authorization header.\n\nContact Support:\n Name: Bandcamp Developer",
+      "type": "text/plain"
+    }
+  }
+}
