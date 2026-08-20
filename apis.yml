@@ -67,6 +67,10 @@ apis:
   baseURL: https://bandcamp.com/api
   tags:
   - Merch
+  - Order
+  - Fulfillment
+  tags_raw:
+  - Merch
   - Orders
   - Fulfillment
   properties:
@@ -98,6 +102,8 @@ apis:
   humanURL: https://bandcamp.com/developer
   baseURL: https://bandcamp.com/api
   tags:
+  - Authentication
+  tags_raw:
   - OAuth
   properties:
   - type: OpenAPI
