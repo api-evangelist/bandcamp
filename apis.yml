@@ -6,6 +6,18 @@ description: >-
   Bandcamp is an artist-direct music marketplace and streaming platform. Its developer APIs are
   limited and gated to labels and merchandise fulfillment partners; access is granted on request and
   uses OAuth 2.0.
+deliveryModel:
+  model: saas
+  open_source: false
+  commercial: true
+  callable_host: true
+  label: Hosted service · you call their endpoint
+  confidence: high
+  source:
+  - openapi
+  - pricing
+  generated: '2026-08-28'
+  method: derived
 accessModel:
   pricing: unknown
   onboarding: self-serve
