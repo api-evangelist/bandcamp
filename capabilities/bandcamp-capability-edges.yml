@@ -1,0 +1,25 @@
+slug: bandcamp
+provider: Bandcamp
+generated_by: planning/capability-mapping/scripts/classify_capabilities.py
+model: claude-opus-5
+frame:
+- Media, Entertainment & Telecom Content
+min_confidence: 0.7
+capability_model:
+  source: https://github.com/vincentmakes/turbo-ea-capabilities
+  license: CC-BY-4.0
+  attribution: Turbo EA Capabilities by Vincent Verdet — Turbo EA, https://github.com/vincentmakes/turbo-ea-capabilities,
+    CC BY 4.0
+  notice: NOTICE
+edge_count: 1
+edges:
+- tag: Merch Orders
+  spec_file: bandcamp-merch-orders-api-openapi.yml
+  capability_id: BC-520.40
+  capability_id_l1: BC-520
+  capability_name: Order Fulfilment Management
+  confidence: 0.78
+  evidence: '''Retrieve merchandise orders'', ''Mark merchandise items as shipped'', ''Update merchandise
+    inventory quantities'''
+  reason: Operations cover retrieval and shipment fulfilment of merchandise orders (with supporting inventory/SKU
+    maintenance), which is order fulfilment management for a merch-fulfilment partner.

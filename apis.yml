@@ -131,6 +131,9 @@ apis:
   - type: OpenAPI
     url: openapi/bandcamp-sales-api-openapi.yml
 common:
+  - type: CapabilityMap
+    url: capabilities/bandcamp-capability-edges.yml
+    name: Bandcamp Business Capability Map
   - type: AgenticAccess
     url: agentic-access/bandcamp-agentic-access.yml
   - type: DomainSecurity
