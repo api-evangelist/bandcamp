@@ -108,18 +108,6 @@ apis:
   properties:
   - type: OpenAPI
     url: openapi/bandcamp-merch-orders-api-openapi.yml
-- aid: bandcamp:bandcamp-oauth-api
-  name: Bandcamp OAuth API
-  description: OAuth 2.0 token issuance and refresh
-  humanURL: https://bandcamp.com/developer
-  baseURL: https://bandcamp.com/api
-  tags:
-  - Authentication
-  tags_raw:
-  - OAuth
-  properties:
-  - type: OpenAPI
-    url: openapi/bandcamp-oauth-api-openapi.yml
 - aid: bandcamp:bandcamp-sales-api
   name: Bandcamp Sales API
   description: Sales reporting for labels
@@ -130,6 +118,16 @@ apis:
   properties:
   - type: OpenAPI
     url: openapi/bandcamp-sales-api-openapi.yml
+- aid: bandcamp:bandcamp-oauth-api
+  name: Bandcamp O Auth API
+  description: OAuth 2.0 token issuance and refresh
+  humanURL: https://bandcamp.com/developer
+  baseURL: https://bandcamp.com/api
+  tags:
+  - OAuth
+  properties:
+  - type: OpenAPI
+    url: openapi/bandcamp-oauth-api-openapi.yml
 common:
   - type: CapabilityMap
     url: capabilities/bandcamp-capability-edges.yml
