@@ -124,6 +124,8 @@ apis:
   humanURL: https://bandcamp.com/developer
   baseURL: https://bandcamp.com/api
   tags:
+  - Authentication
+  tags_raw:
   - OAuth
   properties:
   - type: OpenAPI
