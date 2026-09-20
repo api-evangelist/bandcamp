@@ -1,49 +1,16 @@
-specification: API Commons Rate Limits
-specificationVersion: '0.1'
-schema: https://raw.githubusercontent.com/api-evangelist/interface-research/main/schema/api-commons.yml#/$defs/RateLimits
-provider: Bandcamp
-providerId: bandcamp
-created: '2026-05-08'
-# Provenance stamped 2026-08-11: this artifact was written by the API Evangelist
-# bulk sweep dated 2026-05-08, not harvested from the provider. See roadmap#35.
-method: generated
-modified: '2026-05-08'
-reconciled: false
-tags:
-- Music
-- Marketplace
-- Indie
-- Audio
-- Sales
-- Merch
-- Rate Limiting
-- Quotas
-- Throttling
-description: >-
-  Bandcamp does not publicly document specific rate-limit thresholds for its developer APIs. Tokens
-  expire after one hour and partners are expected to reuse tokens within their lifetime. Excessive
-  requests may trigger throttling or account review.
-notes: Specific RPS thresholds are not documented; coordinate with Bandcamp partner support.
+# Rate limits transcribed from the provider's own documentation — see provenance. Quoted, not derived.
+generated: '2026-09-20'
+method: searched
+source: https://grlchexxit.bandcamp.com/track/nightcore-everytime-i-like-your-videos-why-would-you-read-a-book-on-someone-yeiolk-p-the-label-scammed-everyone-the-openis-your-ip-has-exceeded-the-unregistered-users-rate-limit-of-4-searches-eve
 sources:
-- https://bandcamp.com/developer
-responseCodes:
-  throttled: 429
-limits:
-- name: Default
-  scope: application
-  metric: requests
-  limit: see provider documentation
-  notes: Not publicly documented.
-- name: Token lifetime
-  scope: application
-  metric: minutes
-  limit: 60
-  notes: Access tokens expire after one hour.
-policies:
-- name: Token Reuse
-  description: Reuse access tokens within their one-hour lifetime; do not request a new token per call.
-- name: Backoff Strategy
-  description: On throttling, apply exponential backoff with jitter and contact Bandcamp partner support if sustained.
-maintainers:
-- FN: Kin Lane
-  email: kin@apievangelist.com
+- https://grlchexxit.bandcamp.com/track/nightcore-everytime-i-like-your-videos-why-would-you-read-a-book-on-someone-yeiolk-p-the-label-scammed-everyone-the-openis-your-ip-has-exceeded-the-unregistered-users-rate-limit-of-4-searches-eve
+provenance:
+  tool: planning/api-economics/harvest_ratelimits.py
+  run: 20260920T133210
+  grounding: every limit_text was found verbatim in the fetched page text
+published: false
+note: This is a Bandcamp music track page, not API rate-limit documentation. The phrase about an IP exceeding
+  an unregistered user's rate limit of 4 searches every 30 seconds appears only as part of the joke song
+  title, not as documented API policy.
+limit_count: 0
+limits: []
