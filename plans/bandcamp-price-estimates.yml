@@ -1,0 +1,39 @@
+# ESTIMATES computed by API Evangelist — not published by the provider. See `note` and `replace_by`.
+generated: '2026-09-20'
+method: estimated
+estimator: 'planning/api-economics/estimate_prices.py — design: ESTIMATION.md'
+note: ESTIMATES, not quotes. Computed by API Evangelist from the prices this provider publishes on https://get.bandcamp.help/en/articles/15263193-what-are-bandcamp-s-fees
+  (transcribed in plans/bandcamp-plans-pricing.yml). Nothing here overrides a published price. Each estimate
+  names the figure it came from, the formula, any assumption, and the field the provider can publish to
+  replace it — publish that and the estimate is retired.
+audience_of_source_pricing: business-product
+pricing_basis: ad-valorem
+estimate_count: 2
+estimates:
+- kind: take_rate
+  grade: A
+  grade_meaning: quoted — the page states this figure
+  percent: 6.0
+  fixed_usd: 0.0
+  cap_usd: null
+  inputs:
+  - file: plans/bandcamp-plans-pricing.yml
+    plan: Payment processor fees
+    price_text: typically range between 4 and 6%
+  replace_by: 'API Commons Plans — plans[].entries[] with type: percentage, `price` as "<percent>% + <fixed>"
+    and `cap` where one applies'
+- kind: per_operation_scenarios
+  grade: C
+  grade_meaning: depends on a stated prior — see `priors`
+  formula: 'C3: rate x transaction value + fixed, capped where stated'
+  usd_by_transaction_value:
+    '10': 0.6
+    '100': 6.0
+    '1000': 60.0
+  priors:
+    transaction_value_usd:
+    - 10
+    - 100
+    - 1000
+  replace_by: the same take-rate entry — a published rate makes the scenarios exact arithmetic instead
+    of an estimate
