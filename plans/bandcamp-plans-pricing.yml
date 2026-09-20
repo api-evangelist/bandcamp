@@ -1,68 +1,39 @@
-specification: API Commons Plans
-specificationVersion: '0.1'
-schema: https://raw.githubusercontent.com/api-evangelist/interface-research/main/schema/api-commons.yml#/$defs/Plans
-provider: Bandcamp
-providerId: bandcamp
-created: '2026-05-08'
-# Provenance stamped 2026-08-11: this artifact was written by the API Evangelist
-# bulk sweep dated 2026-05-08, not harvested from the provider. See roadmap#35.
-method: generated
-modified: '2026-05-08'
-reconciled: true
-tags:
-- Music
-- Marketplace
-- Indie
-- Audio
-- Sales
-- Merch
-- Plans
-description: >-
-  Bandcamp's APIs are free for approved label and fulfillment partners. Bandcamp's revenue model is a
-  percentage of artist sales (digital and merch); the seller pays a flat platform share. There is no
-  per-call API fee. Public/anonymous API access is not offered.
-notes: Access is gated; contact Bandcamp directly. Each user requires individual credentials tied to a Bandcamp login.
+# Pricing transcribed from the provider's own page — see provenance. Numbers are quoted, not derived.
+generated: '2026-09-20'
+method: searched
+source: https://get.bandcamp.help/en/articles/15263193-what-are-bandcamp-s-fees
 sources:
-- https://bandcamp.com/developer
-- https://bandcamp.com/help/seller_help
+- https://get.bandcamp.help/en/articles/15263193-what-are-bandcamp-s-fees
+provenance:
+  tool: planning/api-economics/harvest_pricing.py
+  run: 20260920T124425
+  grounding: every price_text was found verbatim in the fetched page text
+audience: business-product
+pricing_basis: ad-valorem
+published: true
+note: Fee schedule page for artists/labels selling on Bandcamp; percentage-of-sale fees, plus a collection
+  society share stated as a variable percentage by fan location. No API pricing.
+plan_count: 4
+currency: USD
 plans:
-- id: bandcamp-partner
-  name: Bandcamp Partner API
-  type: free
-  description: Free OAuth-based API access for approved label and merchandise fulfillment partners.
-  entries:
-  - label: API Access
-    name: api_access
-    type: flat
-    metric: requests
-    limit: -1
-    timeFrame: usage
-    geo: global
-    unit: 1
-    price: 0
-    userMultiplied: false
-  elements:
-  - name: Account API
-  - name: Sales Report API (labels)
-  - name: Merch Orders API (fulfillment partners)
-- id: bandcamp-seller-fees
-  name: Bandcamp Seller Fees
-  type: usage
-  description: Bandcamp takes a percentage of artist digital and merchandise sales (varies by category and product type). API consumers do not pay this directly; sellers do.
-  entries:
-  - label: Seller Share
-    name: seller_share
-    type: percentage
-    metric: sale
-    limit: -1
-    timeFrame: per-transaction
-    geo: global
-    unit: 1
-    price: see https://bandcamp.com/help/seller_help
-    userMultiplied: false
-  elements:
-  - name: Digital sales share
-  - name: Merch sales share
-maintainers:
-- FN: Kin Lane
-  email: kin@apievangelist.com
+- name: Digital items revenue share
+  price_text: Bandcamp’s fee is 15%
+  price: 15
+  period: per-use
+  unit: per sale
+  overage: revenue share applies to the first $100 of an item only
+- name: Digital items reduced rate (after $5,000 in sales)
+  price_text: This rate drops to 10% as soon as you reach $5,000 USD in sales
+  currency: USD
+  period: per-use
+  unit: per sale
+- name: Physical items revenue share
+  price_text: Bandcamp’s revenue share is 10%
+  price: 10
+  period: per-use
+  unit: per sale
+  included_quota: Shipping and tax, if applicable, are not included when calculating this fee
+- name: Payment processor fees
+  price_text: typically range between 4 and 6%
+  period: per-use
+  unit: per transaction

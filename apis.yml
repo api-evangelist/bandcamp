@@ -131,6 +131,8 @@ apis:
   - type: OpenAPI
     url: openapi/bandcamp-oauth-api-openapi.yml
 common:
+  - type: Pricing
+    url: https://get.bandcamp.help/en/articles/15263193-what-are-bandcamp-s-fees
   - type: CapabilityMap
     url: capabilities/bandcamp-capability-edges.yml
     name: Bandcamp Business Capability Map
