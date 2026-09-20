@@ -10,6 +10,10 @@ provenance:
   grounding: every price_text was found verbatim in the fetched page text
 audience: business-product
 pricing_basis: ad-valorem
+delivery:
+  delivery: managed
+  method: keyword-prefilter
+  read: '2026-09-20'
 published: true
 note: Fee schedule page for artists/labels selling on Bandcamp; percentage-of-sale fees, plus a collection
   society share stated as a variable percentage by fan location. No API pricing.
