@@ -1,4 +1,4 @@
-openapi: 3.1.0
+openapi: 3.2.0
 info:
   title: Bandcamp Account API
   version: 1.0.0
@@ -27,6 +27,8 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/MyBandsResponse'
+      operationId: postApiAccount1MyBands
+      x-operation-id-source: derived
 components:
   schemas:
     MyBandsResponse:

@@ -1,6 +1,6 @@
-openapi: 3.1.0
+openapi: 3.2.0
 info:
-  title: Bandcamp Account Sales API
+  title: Bandcamp Sales API
   version: 1.0.0
   description: Bandcamp's gated artist/label/merch-fulfillment API. Provides account, sales reporting, and merchandise order management endpoints. Access is granted on request and uses OAuth 2.0 (client credentials grant) with one-hour access tokens that may be refreshed. All API requests use POST with a Bearer token in the Authorization header.
   contact:
@@ -54,6 +54,8 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/SalesReportResponse'
+      operationId: postApiSales4SalesReport
+      x-operation-id-source: derived
   /api/sales/4/generate_sales_report:
     post:
       tags:
@@ -95,6 +97,8 @@ paths:
                 properties:
                   token:
                     type: string
+      operationId: postApiSales4GenerateSalesReport
+      x-operation-id-source: derived
   /api/sales/4/fetch_sales_report:
     post:
       tags:
@@ -126,8 +130,17 @@ paths:
                       type: string
                       format: uri
                 - $ref: '#/components/schemas/Error'
+      operationId: postApiSales4FetchSalesReport
+      x-operation-id-source: derived
 components:
   schemas:
+    Error:
+      type: object
+      properties:
+        error:
+          type: boolean
+        error_message:
+          type: string
     SalesRow:
       type: object
       properties:
@@ -176,13 +189,6 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/SalesRow'
-    Error:
-      type: object
-      properties:
-        error:
-          type: boolean
-        error_message:
-          type: string
   securitySchemes:
     bearerAuth:
       type: http

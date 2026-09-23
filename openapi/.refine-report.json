@@ -1,10 +1,7 @@
 {
   "provider": "bandcamp",
   "sources": [
-    "bandcamp-account-api-openapi.yml",
-    "bandcamp-merch-orders-api-openapi.yml",
-    "bandcamp-oauth-api-openapi.yml",
-    "bandcamp-sales-api-openapi.yml"
+    "_original/bandcamp-openapi.yml"
   ],
   "outputs": [
     "bandcamp-account-api-openapi.yml",
@@ -12,9 +9,21 @@
     "bandcamp-oauth-api-openapi.yml",
     "bandcamp-sales-api-openapi.yml"
   ],
-  "archived": [],
+  "archived": [
+    "deleted 1 superseded output(s) from the previous generation"
+  ],
   "errors": [],
   "warnings": [],
-  "notes": [],
-  "skipped": []
+  "notes": [
+    "sourced from openapi/_original/ (1 archived document(s)); previously refined output at the top level was skipped rather than re-split",
+    "bandcamp-openapi.yml: upgraded openapi 3.1.0 -> OpenAPI 3.2.0",
+    "superseded outputs removed: bandcamp-o-auth-api-openapi.yml",
+    "apis.yml register: written (+1 apis, 7 total)"
+  ],
+  "skipped": [
+    "bandcamp-account-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "bandcamp-merch-orders-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "bandcamp-o-auth-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "bandcamp-sales-api-openapi.yml: previously refined output, superseded by openapi/_original/"
+  ]
 }
