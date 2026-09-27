@@ -351,35 +351,6 @@ paths:
       x-operation-id-source: derived
 components:
   schemas:
-    Order:
-      type: object
-      properties:
-        sale_item_id:
-          type: integer
-        payment_id:
-          type: integer
-        order_date:
-          type: string
-        buyer_name:
-          type: string
-        buyer_email:
-          type: string
-        ship_to_name:
-          type: string
-        ship_to_street:
-          type: string
-        ship_to_city:
-          type: string
-        ship_to_state:
-          type: string
-        ship_to_zip:
-          type: string
-        ship_to_country:
-          type: string
-        payment_state:
-          type: string
-        ship_date:
-          type: string
     ShippingOrigin:
       type: object
       properties:
@@ -418,6 +389,35 @@ components:
           type: array
           items:
             type: object
+    Order:
+      type: object
+      properties:
+        sale_item_id:
+          type: integer
+        payment_id:
+          type: integer
+        order_date:
+          type: string
+        buyer_name:
+          type: string
+        buyer_email:
+          type: string
+        ship_to_name:
+          type: string
+        ship_to_street:
+          type: string
+        ship_to_city:
+          type: string
+        ship_to_state:
+          type: string
+        ship_to_zip:
+          type: string
+        ship_to_country:
+          type: string
+        payment_state:
+          type: string
+        ship_date:
+          type: string
   securitySchemes:
     bearerAuth:
       type: http
