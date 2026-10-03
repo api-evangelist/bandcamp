@@ -31,6 +31,13 @@ paths:
       x-operation-id-source: derived
 components:
   schemas:
+    MyBandsResponse:
+      type: object
+      properties:
+        bands:
+          type: array
+          items:
+            $ref: '#/components/schemas/Band'
     Band:
       type: object
       properties:
@@ -51,13 +58,6 @@ components:
                 type: integer
               name:
                 type: string
-    MyBandsResponse:
-      type: object
-      properties:
-        bands:
-          type: array
-          items:
-            $ref: '#/components/schemas/Band'
   securitySchemes:
     bearerAuth:
       type: http

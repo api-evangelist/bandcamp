@@ -134,6 +134,20 @@ paths:
       x-operation-id-source: derived
 components:
   schemas:
+    SalesReportResponse:
+      type: object
+      properties:
+        report:
+          type: array
+          items:
+            $ref: '#/components/schemas/SalesRow'
+    Error:
+      type: object
+      properties:
+        error:
+          type: boolean
+        error_message:
+          type: string
     SalesRow:
       type: object
       properties:
@@ -174,20 +188,6 @@ components:
         buyer_email:
           type: string
         country:
-          type: string
-    SalesReportResponse:
-      type: object
-      properties:
-        report:
-          type: array
-          items:
-            $ref: '#/components/schemas/SalesRow'
-    Error:
-      type: object
-      properties:
-        error:
-          type: boolean
-        error_message:
           type: string
   securitySchemes:
     bearerAuth:
