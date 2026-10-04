@@ -134,13 +134,6 @@ paths:
       x-operation-id-source: derived
 components:
   schemas:
-    SalesReportResponse:
-      type: object
-      properties:
-        report:
-          type: array
-          items:
-            $ref: '#/components/schemas/SalesRow'
     Error:
       type: object
       properties:
@@ -148,6 +141,13 @@ components:
           type: boolean
         error_message:
           type: string
+    SalesReportResponse:
+      type: object
+      properties:
+        report:
+          type: array
+          items:
+            $ref: '#/components/schemas/SalesRow'
     SalesRow:
       type: object
       properties:

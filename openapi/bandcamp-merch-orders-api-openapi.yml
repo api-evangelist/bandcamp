@@ -351,6 +351,19 @@ paths:
       x-operation-id-source: derived
 components:
   schemas:
+    ShippingOrigin:
+      type: object
+      properties:
+        origin_id:
+          type: integer
+        band_id:
+          type: integer
+        country_name:
+          type: string
+        state_name:
+          type: string
+        state_code:
+          type: string
     Order:
       type: object
       properties:
@@ -379,19 +392,6 @@ components:
         payment_state:
           type: string
         ship_date:
-          type: string
-    ShippingOrigin:
-      type: object
-      properties:
-        origin_id:
-          type: integer
-        band_id:
-          type: integer
-        country_name:
-          type: string
-        state_name:
-          type: string
-        state_code:
           type: string
     MerchItem:
       type: object
