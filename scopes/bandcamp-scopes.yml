@@ -1,13 +1,28 @@
-generated: '2026-07-11'
-method: derived
-source: openapi/bandcamp-openapi.yml
-docs: https://bandcamp.com/developer
-note: Bandcamp's API uses the OAuth 2.0 client_credentials grant (with refresh tokens)
-  and does not define or document any OAuth scopes (https://bandcamp.com/developer).
+generated: '2026-10-14'
+method: none
+source: openapi/bandcamp-account-api-openapi.yml, openapi/bandcamp-merch-orders-api-openapi.yml,
+  openapi/bandcamp-oauth-api-openapi.yml, openapi/bandcamp-sales-api-openapi.yml
 schemes:
 - name: oauth2
-  source: openapi/bandcamp-openapi.yml
+  source: openapi/bandcamp-account-api-openapi.yml
+  flows:
+  - flow: clientCredentials
+    tokenUrl: https://bandcamp.com/oauth_token
+- name: oauth2
+  source: openapi/bandcamp-merch-orders-api-openapi.yml
+  flows:
+  - flow: clientCredentials
+    tokenUrl: https://bandcamp.com/oauth_token
+- name: oauth2
+  source: openapi/bandcamp-oauth-api-openapi.yml
+  flows:
+  - flow: clientCredentials
+    tokenUrl: https://bandcamp.com/oauth_token
+- name: oauth2
+  source: openapi/bandcamp-sales-api-openapi.yml
   flows:
   - flow: clientCredentials
     tokenUrl: https://bandcamp.com/oauth_token
 scopes: []
+note: The OAuth2 security scheme(s) in the OpenAPI declare no scopes, and no security requirement
+  references one.
