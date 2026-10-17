@@ -141,13 +141,6 @@ components:
           type: boolean
         error_message:
           type: string
-    SalesReportResponse:
-      type: object
-      properties:
-        report:
-          type: array
-          items:
-            $ref: '#/components/schemas/SalesRow'
     SalesRow:
       type: object
       properties:
@@ -189,6 +182,13 @@ components:
           type: string
         country:
           type: string
+    SalesReportResponse:
+      type: object
+      properties:
+        report:
+          type: array
+          items:
+            $ref: '#/components/schemas/SalesRow'
   securitySchemes:
     bearerAuth:
       type: http

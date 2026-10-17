@@ -351,6 +351,31 @@ paths:
       x-operation-id-source: derived
 components:
   schemas:
+    MerchItem:
+      type: object
+      properties:
+        package_id:
+          type: integer
+        title:
+          type: string
+        price:
+          type: number
+        currency:
+          type: string
+        quantity_available:
+          type: integer
+        quantity_sold:
+          type: integer
+        sku:
+          type: string
+        options:
+          type: array
+          items:
+            type: object
+        origin_quantities:
+          type: array
+          items:
+            type: object
     ShippingOrigin:
       type: object
       properties:
@@ -393,31 +418,6 @@ components:
           type: string
         ship_date:
           type: string
-    MerchItem:
-      type: object
-      properties:
-        package_id:
-          type: integer
-        title:
-          type: string
-        price:
-          type: number
-        currency:
-          type: string
-        quantity_available:
-          type: integer
-        quantity_sold:
-          type: integer
-        sku:
-          type: string
-        options:
-          type: array
-          items:
-            type: object
-        origin_quantities:
-          type: array
-          items:
-            type: object
   securitySchemes:
     bearerAuth:
       type: http
