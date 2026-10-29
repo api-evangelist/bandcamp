@@ -1,4 +1,4 @@
-# Bandcamp (bandcamp)
+# Bandcamp
 
 <!-- API-EVANGELIST-PROVENANCE:BEGIN -->
 > ### About this repository
@@ -66,90 +66,131 @@
 
 Bandcamp is an artist-direct music marketplace and streaming platform. Its developer APIs are limited and gated to labels and merchandise fulfillment partners; access is granted on request and uses OAuth 2.0.
 
-**APIs.json:** [https://raw.githubusercontent.com/api-evangelist/bandcamp/refs/heads/main/apis.yml](https://raw.githubusercontent.com/api-evangelist/bandcamp/refs/heads/main/apis.yml)
+**Areas:** Music · Marketplace · Indie · Audio · Sales · Merch
 
-## Tags
+## Bandcamp on APIs.io
 
-- Music
-- Marketplace
-- Indie
-- Audio
-- Sales
-- Merch
+Everything profiled for Bandcamp is published on APIs.io rather than in this repository. Start at the provider page — **[apis.io/providers/bandcamp/](https://apis.io/providers/bandcamp/)** — or go straight to one of the APIs or properties below.
 
-## Timestamps
+### APIs (7)
 
-- **Created:** 2026-05-08
-- **Modified:** 2026-05-08
+- [Bandcamp Account API](https://apis.io/apis/bandcamp/account/) — Account API for retrieving the list of bands a user manages and basic account metadata. OAuth 2.0 client credentials with token endpoint at /oauth_token;…
+- [Bandcamp Sales Report API](https://apis.io/apis/bandcamp/sales-report/) — Sales Report API for labels: retrieves sales line items (digital, physical, merch, subscriptions) over a date range. Restricted to labels.
+- [Bandcamp Merch Orders API](https://apis.io/apis/bandcamp/merch-orders/) — Merch Orders API for fulfillment partners: list and update merchandise orders (mark shipped, set tracking). Restricted to merchandise fulfillment partners.
+- [Bandcamp Account API](https://apis.io/apis/bandcamp/bandcamp-account-api/) — Account and band information
+- [Bandcamp Merch Orders API](https://apis.io/apis/bandcamp/bandcamp-merch-orders-api/) — Merchandise order management and fulfillment
+- [Bandcamp Sales API](https://apis.io/apis/bandcamp/bandcamp-sales-api/) — Sales reporting for labels
+- [Bandcamp O Auth API](https://apis.io/apis/bandcamp/bandcamp-oauth-api/) — OAuth 2.0 token issuance and refresh
 
-## APIs
+### Published properties
 
-### Bandcamp Account API
+Each property below is a page on APIs.io carrying the machine-readable artifact and what it says.
 
-Account API for retrieving the list of bands a user manages and basic account metadata. OAuth 2.0 client credentials with token endpoint at /oauth_token; access tokens expire after one hour.
+#### Agentic access (1)
 
-- **Human URL:** [https://bandcamp.com/developer](https://bandcamp.com/developer)
-- **Base URL:** `https://bandcamp.com/api`
+Which operations an agent can call, which act, and which need a human in the loop.
 
-#### Tags
+- [Bandcamp Agentic Access](https://apis.io/agentic-access/bandcamp/bandcamp-agentic-access/)
 
-- Account
-- Bands
+#### Collections (5)
 
-#### Properties
+Postman and Open Collection request collections.
 
-- [Documentation](https://bandcamp.com/developer)
-- [Postman Collection](collections/bandcamp.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/bandcamp.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
+- [Bandcamp API](https://apis.io/collections/bandcamp/open-bandcamp/)
+- [Bandcamp Account API](https://apis.io/collections/bandcamp/open-bandcamp-account-api/)
+- [Bandcamp Account Merch Orders API](https://apis.io/collections/bandcamp/open-bandcamp-merch-orders-api/)
+- [Bandcamp Account OAuth API](https://apis.io/collections/bandcamp/open-bandcamp-oauth-api/)
+- [Bandcamp Account Sales API](https://apis.io/collections/bandcamp/open-bandcamp-sales-api/)
 
-### Bandcamp Sales Report API
+#### Security (2)
 
-Sales Report API for labels: retrieves sales line items (digital, physical, merch, subscriptions) over a date range. Restricted to labels.
+Authentication, trust centre, and vulnerability disclosure.
 
-- **Human URL:** [https://bandcamp.com/developer/sales](https://bandcamp.com/developer/sales)
-- **Base URL:** `https://bandcamp.com/api`
+- [Bandcamp Authentication](https://apis.io/security/bandcamp/bandcamp-authentication/)
+- [Bandcamp Domain Security](https://apis.io/security/bandcamp/bandcamp-domain-security/)
 
-#### Tags
+#### OAuth scopes (1)
 
-- Sales
-- Reporting
-- Labels
+The permissions the API asks for.
 
-#### Properties
+- [Bandcamp Scopes](https://apis.io/scopes/bandcamp/bandcamp-scopes/)
 
-- [Documentation](https://bandcamp.com/developer/sales)
-- [Postman Collection](collections/bandcamp.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/bandcamp.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
+#### Plans and pricing (2)
 
-### Bandcamp Merch Orders API
+Published plans, tiers and prices.
 
-Merch Orders API for fulfillment partners: list and update merchandise orders (mark shipped, set tracking). Restricted to merchandise fulfillment partners.
+- [Bandcamp Plans Pricing](https://apis.io/plans/bandcamp/bandcamp-plans-pricing/)
+- [Bandcamp Price Estimates](https://apis.io/plans/bandcamp/bandcamp-price-estimates/)
 
-- **Human URL:** [https://bandcamp.com/developer/merch](https://bandcamp.com/developer/merch)
-- **Base URL:** `https://bandcamp.com/api`
+#### Rate limits (1)
 
-#### Tags
+Published request limits.
 
-- Merch
-- Orders
-- Fulfillment
+- [Bandcamp Rate Limits](https://apis.io/rate-limits/bandcamp/bandcamp-rate-limits/)
 
-#### Properties
+#### FinOps (1)
 
-- [Documentation](https://bandcamp.com/developer/merch)
-- [Postman Collection](collections/bandcamp.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/bandcamp.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
+What the API costs to run, by operation.
 
-## Common Properties
+- [Bandcamp Finops](https://apis.io/finops/bandcamp/bandcamp-finops/)
 
-- [LinkedIn](https://www.linkedin.com/company/bandcamp)
+## Where to find this API
+
+Links to the company's own pages. This repository publishes no copy of their specifications — the canonical document is theirs and lives at the URLs below.
+
 - [Website](https://bandcamp.com/)
-- [Developer Portal](https://bandcamp.com/developer)
-- [Plans](plans/bandcamp-plans-pricing.yml)
-- [Rate Limits](rate-limits/bandcamp-rate-limits.yml)
-- [Fin Ops](finops/bandcamp-finops.yml)
+- [Pricing](https://get.bandcamp.help/en/articles/15263193-what-are-bandcamp-s-fees)
+- [Blog](https://blog.bandcamp.com/feed/)
 
-## Maintainers
+## API Evangelist rating
 
-**FN:** Kin Lane
-**Email:** kin@apievangelist.com
+**Kin Score 35.6** — thin · rubric 0.24.0 · scored 2026-10-17
+
+| Facet | Score |
+|---|---|
+| Discoverability | 66.1 |
+| Contract quality | 43.3 |
+| Contract governance | 0.0 |
+| Operational transparency | 0.0 |
+| Developer ergonomics | 33.3 |
+| Access clarity | 42.1 |
+
+**Agent readiness 19.8** — agent-aware
+
+| Agent-readiness dimension | Result |
+|---|---|
+| Spec Presence | yes |
+| Agentic Access | derived (partial credit) |
+| Reversibility Documented | — |
+| MCP Server | — |
+| Auth Clarity | bearer (partial credit) |
+| Idempotency | — |
+| Error Semantics | — |
+| OpenAPI Examples | — |
+| Rate Limit Signal | documented (partial credit) |
+| Event Surface Described | — |
+| Agent Skills | — |
+| Well Known Catalog | — |
+| Consent Identity | — |
+| Agent Card | — |
+| Dry Run Mode | — |
+| Delegated Identity | — |
+| Protected Resource Metadata | — |
+| Dynamic Client Registration | — |
+| Agentic Commerce | — |
+
+**Regulatory alignment 21.6** — Horizontal (data, software, accessibility, platform)
+
+The rubric is published at [github.com/api-evangelist/kin-score](https://github.com/api-evangelist/kin-score). The per-check breakdown behind these numbers — which checks were earned, partial or missed — along with score history and how this provider compares to its peers, is available at [apis.io/providers/bandcamp/](https://apis.io/providers/bandcamp/).
+
+## How this profile is made
+
+API Evangelist profiles a company's public API surface the way a developer would find it: the website, developer portal and documentation, the specifications it publishes, its public repositories, and its pricing, status and changelog pages. From that it derives the properties above — contracts split per API, workflows, schemas, collections, governance rules, plans and rate limits — and scores them against the published [Kin Score rubric](https://github.com/api-evangelist/kin-score).
+
+The artifacts are published on [APIs.io](https://apis.io), not in this repository. This repository is the public record for Bandcamp: the place to say something is wrong, missing or out of date, and to ask for a re-score or a removal.
+
+## Open an issue
+
+- **Something about this listing** — a wrong description, a missing API, a stale artifact or a question about the rating: [open an issue on this repository](https://github.com/api-evangelist/bandcamp/issues/new).
+- **A new API, or one that is not in the catalog yet** — [submit it on APIs.io](https://apis.io/add/).
+- **Anything else** — [the APIs.io inbox](https://github.com/api-search/inbox/issues/new) or [info@apievangelist.com](mailto:info@apievangelist.com).
